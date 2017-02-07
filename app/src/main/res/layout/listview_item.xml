@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center_vertical"
+              android:padding="10dp"
+              android:descendantFocusability="blocksDescendants"
+    >
+
+    <TextView
+        android:layout_marginLeft="10dp"
+        android:gravity="center_vertical"
+        android:id="@+id/textView_list_item_id"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="1"
+        />
+
+    <TextView
+        android:gravity="center"
+        android:id="@+id/textView_list_item_barcode"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="6"
+        android:text="barcode"
+        android:textSize="14sp"
+        />
+
+  <com.innolux.widget.NumView
+      android:id="@+id/num_view"
+      android:layout_marginLeft="3dp"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content">
+  </com.innolux.widget.NumView>
+
+</LinearLayout>

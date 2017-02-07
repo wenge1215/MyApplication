@@ -1,0 +1,22 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+              android:orientation="vertical"
+        >
+   <Button
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="开始扫描"
+       android:onClick="scan"/>
+    <ListView
+        android:id="@+id/listView_data_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/receive_txt"
+        android:divider="#0a0f0b"
+        android:dividerHeight="1dp"
+        android:layout_above="@+id/checkbox_per_100ms"
+        ></ListView>
+
+</LinearLayout>

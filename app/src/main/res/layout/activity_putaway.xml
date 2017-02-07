@@ -1,0 +1,422 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <com.innolux.widget.FavorTitleBar
+        android:id="@+id/favor_title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        app:ftbIsShowBar="true"
+        app:ftbLeftText="@string/ftb_left"
+        app:ftbRightText="@string/ftb_right"
+        app:svSelected="left">
+    </com.innolux.widget.FavorTitleBar>
+
+
+    <LinearLayout
+        android:id="@+id/layout_bin_location_num"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:id="@+id/tv_bin_location_num"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="@string/bin_location_num"
+            android:textSize="14sp"/>
+
+        <EditText
+            android:id="@+id/editText_boom_num"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:hint="请扫描储位码"
+            android:singleLine="true"
+            android:textSize="14sp"
+            >
+
+        </EditText>
+
+        <Button
+            android:id="@+id/btn_scan_boom_num"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.8"
+            android:text="扫描储位码"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_pass_box_num"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:id="@+id/tv_pass_box_num"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="@string/pass_box_num"
+            android:textSize="14sp"/>
+
+        <EditText
+            android:id="@+id/editText_pass_box_num"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:hint="请扫描周转箱或物料码"
+            android:singleLine="true"
+            android:textSize="14sp"
+            >
+
+        </EditText>
+
+        <Button
+            android:id="@+id/btn_scan_pass_box_num"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.8"
+            android:text="扫描周转箱"/>
+    </LinearLayout>
+
+    <CheckBox
+        android:id="@+id/cb_rfid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="RFID"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#000"/>
+    <!--boom单ListView-->
+    <LinearLayout
+        android:id="@+id/layoout_boom"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center_horizontal"
+                android:text="身份码"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="品名"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="储位"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.3"
+                android:gravity="center_horizontal"
+                android:text="数量"/>
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/boom_detail"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"></ListView>
+    </LinearLayout>
+    <!--非BOOM单储位信息和上架物料信息-->
+    <LinearLayout
+        android:id="@+id/layout_no_boom"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:visibility="gone"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="储位信息:"
+                    android:textSize="18sp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:paddingRight="18dp"
+                    android:layout_margin="3dp"
+                    android:text="储位码:"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:paddingRight="18dp"
+                    android:layout_margin="3dp"
+                    android:text="品名:"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:paddingRight="18dp"
+                    android:layout_margin="3dp"
+
+                    android:text="规格:"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:gravity="right"
+                    android:paddingRight="18dp"
+                    android:text="当前数量:"
+                    android:textSize="16sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_bin_location_info"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="6"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:visibility="invisible"/>
+
+                <TextView
+                    android:id="@+id/tv_bin_location_info_code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:text="15975386248852456"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:id="@+id/tv_bin_location_info_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:text="铜"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:id="@+id/tv_bin_location_info_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:text="12*12*12:"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:id="@+id/tv_bin_location_info_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:text="12"
+                    android:textSize="16sp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.2"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="物料信息:"
+                    android:textSize="18sp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:gravity="right"
+                    android:paddingRight="18dp"
+                    android:text="上架储位编码:"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:gravity="right"
+                    android:paddingRight="18dp"
+                    android:text="储位:"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:gravity="right"
+                    android:paddingRight="18dp"
+                    android:text="物料编码:"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:gravity="right"
+                    android:paddingRight="18dp"
+                    android:text="品名:"
+                    android:textSize="16sp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:gravity="right"
+                    android:paddingRight="18dp"
+                    android:text="规格:"
+                    android:textSize="16sp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginRight="3dp"
+                    android:layout_marginTop="16dp"
+
+                    android:gravity="right"
+                    android:paddingRight="18dp"
+                    android:text="上架数量:"
+                    android:textSize="16sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_material_info"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="6"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:visibility="invisible"/>
+
+                <TextView
+                    android:id="@+id/tv_material_info_bin_location_code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:text="15975386248852456"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:id="@+id/tv_material_info_bin_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:text="A3-34"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:id="@+id/tv_material_info_code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:text="656565656566"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:id="@+id/tv_material_info_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:text="铜"
+                    android:textSize="16sp"/>
+                <TextView
+                    android:id="@+id/tv_material_info_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:text="12*12*12"
+                    android:textSize="16sp"/>
+
+                <EditText
+                    android:id="@+id/et_material_info_count"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:text="14"
+                    android:textSize="16sp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btn_complete"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="完成"
+            android:textSize="18sp"/>
+
+        <Button
+            android:id="@+id/btn_clear"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="清空"
+            android:textSize="18sp"/>
+    </LinearLayout>
+
+</LinearLayout>

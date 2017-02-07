@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">INNOLUX</string>
+    <string name="home">菜单</string>
+    <string name="boom_num">BOOM单：</string>
+    <string name="id">ID</string>
+    <string name="barcode">BarCode</string>
+    <string name="count">Count</string>
+    <string name="material_num">物料码</string>
+    <string name="accessPassword">00000000</string>
+    <string name="pass_box_num">周转箱码：</string>
+    <string name="ftb_left">BOOM上架</string>
+    <string name="ftb_right">非BOOM上架</string>
+    <string name="bin_location_num">储位码：</string>
+</resources>

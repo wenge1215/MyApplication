@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center_vertical"
+              android:padding="10dp"
+    >
+
+    <TextView
+        android:id="@+id/tall_list_view_item_material_num"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_weight="3"
+        android:gravity="center"
+        android:text="141234214214242213"
+        />
+
+    <TextView
+        android:id="@+id/tall_list_view_item_bin_loaction"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:gravity="center"
+        android:text="barcode"
+        android:textSize="14sp"
+        />
+
+    <TextView
+        android:id="@+id/tall_list_view_item_outLib_num"
+        android:gravity="center"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="1233"/>
+
+</LinearLayout>

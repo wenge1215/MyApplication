@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--FavorTitleBar自定义属性-->
+    <declare-styleable name="FavorTitleBar">
+
+        <!-- 左侧文本 -->
+        <attr name="ftbLeftText" format="reference|string"/>
+        <!-- 右侧文本 -->
+        <attr name="ftbRightText" format="reference|string"/>
+        <!--是否显示左右两侧的text-->
+        <attr name="ftbIsShowBar" format="boolean"/>
+        <!--<attr name="ftbIsShowBar" format="boolean"/>-->
+        <!-- 默认被选中的按钮 -->
+        <attr name="svSelected">
+            <enum name="left" value="0"/>
+            <enum name="right" value="1"/>
+        </attr>
+
+    </declare-styleable>
+
+    <!--NavigationBar自定义属性-->
+    <declare-styleable name="NavigationBar">
+
+        <!-- 左侧文本 -->
+        <attr name="NBTitle" format="reference|string"/>
+        <!--是否显示back-->
+        <attr name="isShowBack" format="boolean"/>
+        <!--是否显示more-->
+        <attr name="isShowMore" format="boolean"/>
+
+    </declare-styleable>
+</resources>

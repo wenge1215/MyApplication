@@ -1,0 +1,52 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/layout_material_num"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="@string/material_num"
+            android:textSize="16sp"/>
+
+        <EditText
+            android:id="@+id/editText_material_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:hint="12345678987654321"
+            android:singleLine="true"
+            android:textSize="16sp"
+            >
+        </EditText>
+
+        <Button
+            android:id="@+id/btn_scan_material_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="扫描"/>
+    </LinearLayout>
+
+    <CheckBox
+        android:id="@+id/detial_cb_rfid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="RFID"/>
+
+
+    <ListView
+        android:id="@+id/lv_material_detail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></ListView>
+</LinearLayout>
