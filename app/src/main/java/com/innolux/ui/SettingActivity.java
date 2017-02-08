@@ -79,7 +79,7 @@ public class SettingActivity extends BaseActivity {
 
         mEtSettingPower.setText(mDefaultPower + "");
         MyEditTextChangeLis myEditTextChangeLis = new MyEditTextChangeLis();
-        mEtSettingAddr.addTextChangedListener();
+//        mEtSettingAddr.addTextChangedListener();
     }
 
     @Override
