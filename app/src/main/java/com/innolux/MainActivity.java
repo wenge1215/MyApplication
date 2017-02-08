@@ -134,6 +134,8 @@ public class MainActivity extends BaseActivity {
                     toast("设置");
                     goTo(SettingActivity.class);
                     break;
+                default:
+                    break;
             }
         }
     };

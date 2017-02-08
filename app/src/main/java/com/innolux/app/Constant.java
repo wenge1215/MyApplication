@@ -10,4 +10,9 @@ public interface Constant {
     int TIME_OUT = 5000;
     String DETAIL_KEY = "detaul_key";
     String SETTING = "setting";
+    String POWER = "power";
+    String STARTLOACTION = "startLoaction";
+    String ENDLOCATION = "endLocation";
+    String PARSWORLD = "parsword";
+
 }

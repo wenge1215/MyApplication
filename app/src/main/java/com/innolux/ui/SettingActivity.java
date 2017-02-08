@@ -10,6 +10,9 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 
 import com.innolux.R;
+import com.innolux.app.Constant;
+import com.innolux.app.MyApp;
+import com.innolux.utils.SPUtils;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -48,8 +51,9 @@ public class SettingActivity extends BaseActivity {
     private final String[] strMemBank = {"RESERVE", "EPC", "TID", "USER"};//RESERVE EPC TID USER分别对应0,1,2,3
     private int membank;        //数据区
     private int lockMembank;
-    private int mDefaultPower ;
-    private int mAddr ;
+    private int mDefaultPower;
+    private int mAddr;
+    private int mPower;
 
     @Override
     public int getLayoutResID() {
@@ -65,7 +69,14 @@ public class SettingActivity extends BaseActivity {
     }
 
     private void initView() {
-        mEtSettingPower.setText(mDefaultPower+"");
+        mEtSettingPower.setText(mDefaultPower + "");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mPower = SPUtils.getInt(MyApp.getContext(), Constant.POWER, 26);
+        mEtSettingPower.setText(mPower+"");
     }
 
     private void initSpinnerAdapter() {
@@ -92,14 +103,40 @@ public class SettingActivity extends BaseActivity {
 
     @OnClick({R.id.bit_setting_save, R.id.btn_setting_cancel, R.id.iv_setting_minus, R.id.iv_setting_add})
     public void onClick(View view) {
+        String power;
         switch (view.getId()) {
             case R.id.bit_setting_save:
+                SPUtils.putInt(MyApp.getContext(),Constant.POWER,mPower);
+                SPUtils.putInt(MyApp.getContext(),Constant.STARTLOACTION,mPower);
+                SPUtils.putInt(MyApp.getContext(),Constant.ENDLOCATION,mPower);
+
+
+
+
                 break;
             case R.id.btn_setting_cancel:
                 break;
             case R.id.iv_setting_minus:
+                power = mEtSettingPower.getText().toString().trim();
+                mPower = Integer.valueOf(power);
+                mPower--;
+                if (mPower > 26 ) {
+                    mPower = 26;
+                }else if (mPower<16){
+                    mPower = 16;
+                }
+                mEtSettingPower.setText(mPower+"");
                 break;
             case R.id.iv_setting_add:
+                power = mEtSettingPower.getText().toString().trim();
+                mPower = Integer.valueOf(power);
+                mPower++;
+                if (mPower > 26 ) {
+                    mPower = 26;
+                }else if (mPower<16){
+                    mPower = 16;
+                }
+                mEtSettingPower.setText(mPower+"");
                 break;
         }
     }

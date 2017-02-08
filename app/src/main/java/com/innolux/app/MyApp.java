@@ -3,6 +3,8 @@ package com.innolux.app;
 import android.app.Application;
 import android.content.Context;
 
+import com.innolux.utils.SPUtils;
+
 
 /**
  * 创建者： WENGE .
@@ -28,6 +30,11 @@ public class MyApp extends Application {
         //创建一些整个app常用的一些对象
         //上下文
         sContext = getApplicationContext();
+
+        //初始化设置参数功率
+        SPUtils.putInt(sContext, Constant.POWER, 26);   //功率
+        SPUtils.putInt(sContext,Constant.STARTLOACTION,2);
+        SPUtils.putInt(sContext,Constant.ENDLOCATION,8);
 
     }
 

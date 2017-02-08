@@ -213,6 +213,8 @@ public class PutawayActivity extends BaseActivity {
                     initInfo(View.INVISIBLE);
                 }
                 break;
+            default:
+                break;
         }
     }
 

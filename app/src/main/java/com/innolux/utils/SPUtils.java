@@ -41,6 +41,31 @@ public class SPUtils {
     }
 
     /**
+     * 保存一个int
+     * @param context
+     * @param key
+     * @param i
+     */
+    public static void putInt(Context context,String key,int i){
+        SharedPreferences sp = context.getSharedPreferences(Constant.SETTING, Context.MODE_PRIVATE);
+        sp.edit().putInt(key,i);
+    }
+
+    /**
+     * 获取一个Int
+     * @param context
+     * @param key
+     * @return
+     */
+    public static int getInt(Context context,String key){
+        return getInt(context,key,0);
+    }
+    public static int getInt(Context context,String key,int def){
+        SharedPreferences sp = context.getSharedPreferences(Constant.SETTING, Context.MODE_APPEND);
+        return sp.getInt(key, def);
+    }
+
+    /**
      * 保存一个boolean值
      * @param context
      * @param key
