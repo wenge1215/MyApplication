@@ -116,7 +116,7 @@ public class TallyActivity extends BaseActivity implements CompoundButton.OnChec
         initCBListener();
         initData();
 //        initAdapter();
-        WarningToneUtil.play(this, 1, 0);
+//        WarningToneUtil.play(this, 1, 0);
 
     }
 
@@ -306,7 +306,7 @@ public class TallyActivity extends BaseActivity implements CompoundButton.OnChec
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_scan_demand_num:
-                WarningToneUtil.play(this, 1, 0);
+                WarningToneUtil.play(1, 0);
                 toast("点击Scan");
 //                String name = mBoomData.get(2).getName();
 //                System.out.println(name);
@@ -318,7 +318,7 @@ public class TallyActivity extends BaseActivity implements CompoundButton.OnChec
                 String epc = rfidUtils.readOnceEPC();
                 if (isWholdOut) {
                     if (!TextUtils.isEmpty(epc)) {
-                        WarningToneUtil.play(this, 1, 0);
+                        WarningToneUtil.play( 1, 0);
                         mEtTallyPassBoxNum.setText(epc);
                         //TODO 异步获取周转箱物料明细，并进行展示
                         initBoomAdapter();
@@ -328,7 +328,7 @@ public class TallyActivity extends BaseActivity implements CompoundButton.OnChec
                     }
                 } else {
                     if (!TextUtils.isEmpty(epc)) {
-                        WarningToneUtil.play(this, 1, 0);
+                        WarningToneUtil.play(1, 0);
                         mEtTallyPassBoxNum.setText(epc);
                         //TODO 当非整出的时候获取到的周转箱码为出库周转箱码
 
@@ -341,7 +341,7 @@ public class TallyActivity extends BaseActivity implements CompoundButton.OnChec
             case R.id.btn_scan_bin_location:
                 String barCode = BarCodeUtils.getInstans().scan(Constant.TIME_OUT);
                 if (!TextUtils.isEmpty(barCode)) {
-                    WarningToneUtil.play(this, 1, 0);
+                    WarningToneUtil.play(1, 0);
                     mEtBinLocationNum.setText(barCode);
                 }
 

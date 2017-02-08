@@ -162,7 +162,7 @@ public class PutawayActivity extends BaseActivity {
                 String barCode = BarCodeUtils.getInstans().scan(Constant.TIME_OUT);
                 if (barCode != null && barCode.length() > 5) {
                     mBinLocation = barCode;
-                    WarningToneUtil.play(this,1, 0);
+                    WarningToneUtil.play(1, 0);
                 } else {
                     mBinLocation = "";
                     toast("二维码读取失败，请重新读取");
@@ -174,7 +174,7 @@ public class PutawayActivity extends BaseActivity {
                 if (isRFID) {
                     if (mRfidUtils == null) {
                         mRfidUtils = new RFIDUtils(this);
-                        WarningToneUtil.play(this,1, 0);
+                        WarningToneUtil.play(1, 0);
                     }
                     String epc = mRfidUtils.readOnceEPC();
                     if (epc != null && epc.length() > 10) {
@@ -191,7 +191,7 @@ public class PutawayActivity extends BaseActivity {
 //                    initListView();
                 }
                 if (mBox2Mateial != null && mBox2Mateial.length() > 10) {
-                    WarningToneUtil.play(this,1, 0);
+                    WarningToneUtil.play(1, 0);
                     mEditTextPassBoxNum.setText(mBox2Mateial);
                     if (isBOOM) {
                         initListView();

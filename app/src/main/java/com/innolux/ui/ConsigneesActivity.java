@@ -170,7 +170,7 @@ public class ConsigneesActivity extends BaseActivity {
             public void run() {
                 sortAndadd(mBarcodes, barCode);
                 addListView();
-                WarningToneUtil.play(ConsigneesActivity.this,1, 0);
+                WarningToneUtil.play(1, 0);
             }
         });
     }

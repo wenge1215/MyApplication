@@ -61,7 +61,7 @@ public class BarCodeActivityUP extends BaseActivity {
 
     public void scan(View view) {
         toast("被点击了");
-        WarningToneUtil.play(this,1, 0);
+        WarningToneUtil.play(1, 0);
         String barCode = BarCodeUtils.getInstans().scan(timeOut);
         displayScanResult(barCode);
     }
@@ -87,7 +87,7 @@ public class BarCodeActivityUP extends BaseActivity {
             public void run() {
                     sortAndadd(mBarcodes,barCode);
                     addListView();
-                WarningToneUtil.play(BarCodeActivityUP.this,1, 0);
+                WarningToneUtil.play(1, 0);
             }
         });
     }

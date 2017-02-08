@@ -1,5 +1,7 @@
 package com.innolux.ui;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -51,9 +53,11 @@ public class SettingActivity extends BaseActivity {
     private final String[] strMemBank = {"RESERVE", "EPC", "TID", "USER"};//RESERVE EPC TID USER分别对应0,1,2,3
     private int membank;        //数据区
     private int lockMembank;
-    private int mDefaultPower;
-    private int mAddr;
+    private int mDefaultPower = 26;
     private int mPower;
+    private String mStartAddr;
+    private String mEndLength;
+    private String mPwd;
 
     @Override
     public int getLayoutResID() {
@@ -69,14 +73,19 @@ public class SettingActivity extends BaseActivity {
     }
 
     private void initView() {
+        mStartAddr = mEtSettingAddr.getText().toString().trim();
+        mEndLength = mEtSettingLength.getText().toString().trim();
+        mPwd = mEtSettingPwd.getText().toString().toString();
+
         mEtSettingPower.setText(mDefaultPower + "");
+        MyEditTextChangeLis myEditTextChangeLis = new MyEditTextChangeLis();
+        mEtSettingAddr.addTextChangedListener();
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        mPower = SPUtils.getInt(MyApp.getContext(), Constant.POWER, 26);
-        mEtSettingPower.setText(mPower+"");
+        mEtSettingPower.setText(mDefaultPower+"");
     }
 
     private void initSpinnerAdapter() {
@@ -105,39 +114,72 @@ public class SettingActivity extends BaseActivity {
     public void onClick(View view) {
         String power;
         switch (view.getId()) {
-            case R.id.bit_setting_save:
+            case R.id.bit_setting_save:     //将设置参数保存到sp:
+                SPUtils.putString(MyApp.getContext(),Constant.ACCESSPASSWORD,mPwd);
                 SPUtils.putInt(MyApp.getContext(),Constant.POWER,mPower);
-                SPUtils.putInt(MyApp.getContext(),Constant.STARTLOACTION,mPower);
-                SPUtils.putInt(MyApp.getContext(),Constant.ENDLOCATION,mPower);
-
-
-
-
+                SPUtils.putInt(MyApp.getContext(),Constant.DATAREGION,membank);
+                SPUtils.putInt(MyApp.getContext(),Constant.STARTLOACTION,Integer.valueOf(mStartAddr));
+                SPUtils.putInt(MyApp.getContext(), Constant.ENDLENGTH, Integer.valueOf(mEndLength));
+                toast("设置保存成功！");
+                finish();
                 break;
             case R.id.btn_setting_cancel:
                 break;
             case R.id.iv_setting_minus:
-                power = mEtSettingPower.getText().toString().trim();
-                mPower = Integer.valueOf(power);
-                mPower--;
-                if (mPower > 26 ) {
-                    mPower = 26;
-                }else if (mPower<16){
-                    mPower = 16;
-                }
-                mEtSettingPower.setText(mPower+"");
+                setPower(false);
                 break;
             case R.id.iv_setting_add:
-                power = mEtSettingPower.getText().toString().trim();
-                mPower = Integer.valueOf(power);
-                mPower++;
-                if (mPower > 26 ) {
-                    mPower = 26;
-                }else if (mPower<16){
-                    mPower = 16;
-                }
-                mEtSettingPower.setText(mPower+"");
+                setPower(true);
                 break;
+        }
+    }
+
+    /**
+     * 设置功率
+     * @param b
+     */
+    private void setPower(boolean b) {
+        String power;
+        power = mEtSettingPower.getText().toString().trim();
+        mPower = Integer.valueOf(power);
+        if (b) {
+            mPower++;
+        }
+        mPower--;
+        if (mPower > 26 ) {
+            mPower = 26;
+        }else if (mPower<16){
+            mPower = 16;
+        }
+        mEtSettingPower.setText(mPower+"");
+    }
+
+    class MyEditTextChangeLis implements TextWatcher {
+//        private EditText EtID = null;
+
+//        public MyEditTextChangeLis(EditText etID) {
+//            EtID = etID;
+//        }
+
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+//            if (EtID == mEtSettingAddr) {
+//                mStartAddr = s.toString();
+//
+//            } else if (EtID == mEtSettingLength) {
+//                mEndLength = s.toString();
+//            }
+
         }
     }
 }

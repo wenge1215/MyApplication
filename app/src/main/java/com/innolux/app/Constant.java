@@ -12,7 +12,9 @@ public interface Constant {
     String SETTING = "setting";
     String POWER = "power";
     String STARTLOACTION = "startLoaction";
-    String ENDLOCATION = "endLocation";
+    String ENDLENGTH = "endLocation";
     String PARSWORLD = "parsword";
+    String DATAREGION = "dataRegion";       //数据区
 
+    String ACCESSPASSWORD = "accessPassword";
 }

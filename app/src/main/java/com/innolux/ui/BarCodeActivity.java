@@ -228,7 +228,7 @@ public class BarCodeActivity extends BaseActivity {
                 sortAndadd(listBarcode, barCode);
                 mEditTextBarcodeCount.setText(listBarcode.size() + "");
                 addListView();
-                WarningToneUtil.play(BarCodeActivity.this,1, 0);
+                WarningToneUtil.play(1, 0);
             }
         });
 

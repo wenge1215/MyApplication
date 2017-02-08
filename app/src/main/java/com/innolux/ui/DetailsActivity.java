@@ -178,14 +178,14 @@ public class DetailsActivity extends BaseActivity {
             //TODO 读取rfid
             String epc = mRFIDUtils.readOnceEPC();
             if (!TextUtils.isEmpty(epc)) {
-                WarningToneUtil.play(this,1,0);
+                WarningToneUtil.play(1,0);
                 mMaterialNum = epc;
             }else
                 mMaterialNum = "";
         } else {
             String barCode = BarCodeUtils.getInstans().scan(5000);
             if (!TextUtils.isEmpty(barCode)) {
-                WarningToneUtil.play(this, 1, 0);
+                WarningToneUtil.play(1, 0);
                 mMaterialNum = barCode;
             } else {
                 mMaterialNum = "";

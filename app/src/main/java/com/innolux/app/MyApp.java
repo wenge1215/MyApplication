@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 
 import com.innolux.utils.SPUtils;
+import com.innolux.utils.WarningToneUtil;
 
 
 /**
@@ -30,12 +31,15 @@ public class MyApp extends Application {
         //创建一些整个app常用的一些对象
         //上下文
         sContext = getApplicationContext();
-
-        //初始化设置参数功率
-        SPUtils.putInt(sContext, Constant.POWER, 26);   //功率
-        SPUtils.putInt(sContext,Constant.STARTLOACTION,2);
-        SPUtils.putInt(sContext,Constant.ENDLOCATION,8);
-
+        WarningToneUtil.initSoundPool(sContext);
+        initSetting();
     }
 
+    private void initSetting() {
+        SPUtils.putString(MyApp.getContext(),Constant.ACCESSPASSWORD,"00000000");
+        SPUtils.putInt(MyApp.getContext(),Constant.POWER,26);
+        SPUtils.putInt(MyApp.getContext(),Constant.DATAREGION,1);
+        SPUtils.putInt(MyApp.getContext(),Constant.STARTLOACTION,Integer.valueOf(2));
+        SPUtils.putInt(MyApp.getContext(),Constant.ENDLENGTH,Integer.valueOf(8));
+    }
 }
