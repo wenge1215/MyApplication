@@ -157,6 +157,7 @@ public class ConsigneesActivityUP extends BaseActivity implements View.OnFocusCh
     private void initDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
+
         builder.setTitle("提示");
         builder.setMessage("是否为BOOM收料");
 
@@ -173,7 +174,6 @@ public class ConsigneesActivityUP extends BaseActivity implements View.OnFocusCh
             }
         });
         builder.create().show();
-
     }
 
     @OnClick({R.id.btn_query, R.id.btn_cancel, R.id.btn_submit})

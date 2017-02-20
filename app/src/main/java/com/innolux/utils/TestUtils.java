@@ -1,14 +1,5 @@
 package com.innolux.utils;
 
-import android.content.Context;
-import android.graphics.Color;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
-
-import com.innolux.R;
 import com.innolux.bean.BeanClass;
 
 import java.util.ArrayList;
@@ -67,57 +58,6 @@ public class TestUtils {
             hashMap.put(cols[4], listData.get(i).ExistingNum);
             hashMap.put(cols[5], listData.get(i).nowNum);
             mMapList.add(hashMap);
-        }
-    }
-
-    public TestAdapter getAdapter(Context context) {
-        ArrayList<BeanClass> listData = getListData();
-        TestAdapter testAdapter = new TestAdapter(context, listData);
-        return testAdapter;
-    }
-
-    class TestAdapter extends BaseAdapter {
-        Context mContext;
-        List<BeanClass> mDatas;
-
-        public TestAdapter(Context context, List<BeanClass> datas) {
-            mContext = context;
-            mDatas = datas;
-        }
-
-        @Override
-        public int getCount() {
-            return mDatas.size();
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return null;
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return 0;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            ViewHolder holder;
-            if (convertView == null) {
-                convertView = LayoutInflater.from(mContext).inflate(R.layout.test_view, null);
-                holder = new ViewHolder();
-                holder.mTextView= (TextView) convertView;
-                convertView.setTag(holder);
-            } else {
-                holder = (ViewHolder) convertView.getTag();
-            }
-
-            holder.mTextView.setText(mDatas.get(position).name);
-            holder.mTextView.setTextColor(Color.BLACK);
-            return convertView;
-        }
-        class ViewHolder{
-            TextView mTextView;
         }
     }
 }

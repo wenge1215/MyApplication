@@ -38,9 +38,6 @@
         <activity android:name=".ui.DetailsActivity">
         </activity>
         <activity android:name=".ui.PutawayActivity"></activity>
-        <activity android:name=".ui.Test">
-
-        </activity>
         <activity android:name=".ui.AbnormalActivity"/>
         <activity android:name=".ui.BInLocationActivity"/>
         <activity android:name=".ui.ClampingActivity"/>
