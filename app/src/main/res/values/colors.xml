@@ -4,7 +4,11 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
-    <color name="hintColor">#d7d7d7</color>
-    <color name="pressBarBg">#f2f2f2</color>
-    <color name="lightBg">#fefefe</color>
+    <color name="hintColor">#adeac3</color>
+    <color name="pressBarBg">#6ee7ab</color>
+    <color name="lightBg">#ace9c2</color>
+    <color name="nav_selected">#1e1e1e</color>
+    <color name="orange">#ff4400</color>
+    <color name="white">#fff</color>
+    <color name="black">#000</color>
 </resources>

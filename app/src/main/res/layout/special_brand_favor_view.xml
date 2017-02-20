@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_favor"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     >
     <LinearLayout
+
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="54dp"
@@ -27,7 +27,7 @@
                 android:layout_centerVertical="true"
                 android:text="商品"
                 android:textColor="@color/sb_title_text_elector"
-                android:textSize="16sp"/>
+                android:textSize="@dimen/comm_text_size_22"/>
 
             <View
                 android:id="@+id/indicator_left"
@@ -65,7 +65,7 @@
                 android:layout_height="wrap_content"
                 android:text="店铺"
                 android:textColor="@color/sb_title_text_elector"
-                android:textSize="16sp"
+                android:textSize="@dimen/comm_text_size_22"
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"/>
         </RelativeLayout>

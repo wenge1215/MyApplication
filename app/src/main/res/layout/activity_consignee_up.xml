@@ -1,0 +1,157 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="条码信息"
+            android:textSize="@dimen/comm_text_size_20"
+            />
+        <EditText
+            android:id="@id/et_materiel_code_info"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/bg_edittext"
+            android:hint="物料条码信息"
+            android:maxLines="1"
+            android:singleLine="true"/>
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="100dp"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:text="周转箱码"
+            android:textSize="@dimen/comm_text_size_20"
+            />
+
+        <EditText
+            android:id="@id/et_boom_code"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/bg_edittext"
+            android:hint="请读取周转箱身份码"
+            android:maxLines="1"
+            android:singleLine="true"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="PO编码"
+            android:textSize="@dimen/comm_text_size_20"
+            />
+
+        <EditText
+            android:id="@id/et_po_code"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+
+            android:background="@drawable/bg_edittext"
+            android:hint="请输入PO码"
+            android:maxLines="1"
+            android:singleLine="true"/>
+
+        <Button
+            android:id="@id/btn_query"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="3dp"
+            android:text="查询"
+            android:textSize="@dimen/comm_text_size_20"
+            android:layout_marginRight="20dp"/>
+    </LinearLayout>
+
+    <com.innolux.widget.FavorTitleBar
+        android:id="@+id/consignees_favor_title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:ftbLeftText="作业"
+        app:ftbRightText="明细"
+        app:svSelected="left"
+        >
+    </com.innolux.widget.FavorTitleBar>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:id="@+id/fl_consignee_detailed"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            ></FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="0"
+            >
+
+            <!--<Button-->
+            <!--android:id="@id/btn_detail"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="60dp"-->
+            <!--android:layout_weight="2"-->
+            <!--android:textSize="@dimen/comm_text_size_20"-->
+            <!--android:text="明细"/>-->
+
+            <Button
+                android:id="@id/btn_cancel"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="2"
+                android:text="取消"
+                android:textSize="@dimen/comm_text_size_20"/>
+
+            <Button
+                android:id="@id/btn_submit"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="2"
+                android:text="提交"
+                android:textSize="@dimen/comm_text_size_20"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

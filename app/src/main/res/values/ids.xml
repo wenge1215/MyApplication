@@ -4,4 +4,11 @@
     <item name="add" type="id"/>
     <item name="gtid_view" type="id"/>
     <item name="navigation_bar" type="id"/>
+    <item name="et_materiel_code_info" type="id"/>
+    <item name="et_boom_code" type="id"/>
+    <item name="et_po_code" type="id"/>
+    <item name="btn_detail" type="id"/>
+    <item name="btn_cancel" type="id"/>
+    <item name="btn_submit" type="id"/>
+    <item name="btn_query" type="id"/>
 </resources>

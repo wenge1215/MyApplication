@@ -2,5 +2,5 @@
 <resources>
     <!-- app背景色 -->
     <drawable name="android_layout_bg">#f2f3f5</drawable>
-    <drawable name="hintColor">#d7d7d7</drawable>
+    <drawable name="hintColor">#646262</drawable>
 </resources>

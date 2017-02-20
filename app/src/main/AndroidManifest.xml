@@ -11,11 +11,11 @@
     <uses-permission android:name="android.permission.WRITE_PROFILE"/>
 
     <application
+        android:name=".app.MyApp"
         android:allowBackup="true"
         android:icon="@mipmap/ilx"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:name=".app.MyApp"
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity">
@@ -32,6 +32,9 @@
             android:name=".ui.ConsigneesActivity">
 
         </activity>
+        <activity android:name=".activity.ConsigneesActivityUP">
+
+        </activity>
         <activity android:name=".ui.DetailsActivity">
         </activity>
         <activity android:name=".ui.PutawayActivity"></activity>
@@ -46,10 +49,16 @@
         <activity android:name=".ui.SeparateActivity"/>
         <activity android:name=".ui.TakeStockActivity"/>
         <activity android:name=".ui.SettingActivity"/>
-
         <activity
             android:name=".ui.TallyActivity"></activity>
-
+        <activity android:name=".ui.HTableActivity">
+        </activity>
+        <activity android:name=".ui.HListViewActivity">
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN"/>-->
+                <!--<category android:name="android.intent.category.LAUNCHER"/>-->
+            <!--</intent-filter>-->
+        </activity>
         <service android:name=".service.ScanService">
             <action android:name="com.my.scan"/>
             <category android:name="android.intent.category.DEFAULT"/>

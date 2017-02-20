@@ -11,11 +11,11 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.innolux.activity.ConsigneesActivityUP;
 import com.innolux.ui.AbnormalActivity;
 import com.innolux.ui.BInLocationActivity;
 import com.innolux.ui.BaseActivity;
 import com.innolux.ui.ClampingActivity;
-import com.innolux.ui.ConsigneesActivity;
 import com.innolux.ui.DetailsActivity;
 import com.innolux.ui.PositionActivity;
 import com.innolux.ui.PutawayActivity;
@@ -85,7 +85,7 @@ public class MainActivity extends BaseActivity {
             switch (i) {
                 case 0:
 //                    toast(getResources().getString(R.string.repertory_search));
-                    goTo(ConsigneesActivity.class);
+                    goTo(ConsigneesActivityUP.class);
                     break;
                 case 1:
 //                    toast(getResources().getString(R.string.goods_search));

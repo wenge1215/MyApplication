@@ -15,12 +15,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-/**
- * 创建者： WENGE .
- * 创建日期： 2016/10/24  15:14.
- * 描述：
- */
-
 public class FavorTitleBar extends RelativeLayout implements View.OnClickListener {
     public static final String LEFT = "left";
     public static final String RIGHT = "right";
