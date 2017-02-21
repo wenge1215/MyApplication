@@ -20,7 +20,6 @@ import android.widget.Toast;
 
 import com.innolux.Barcode;
 import com.innolux.activity.ConsigneesActivityUP;
-import com.innolux.utils.RFIDUtils;
 
 import java.util.List;
 
@@ -222,8 +221,8 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        RFIDUtils rfidUtils = new RFIDUtils(this);
-        rfidUtils.closeReaner();
+//        RFIDUtils rfidUtils = new RFIDUtils(this);
+//        rfidUtils.closeReaner();
     }
 
     @Override

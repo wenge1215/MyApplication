@@ -17,25 +17,22 @@
         android:text="条码信息"
         android:gravity="center"
         android:textSize="18dp"/>
-
-    <TextView
+    <TextView 
         android:layout_width="100dp"
         android:layout_height="40dp"
         android:text="请购量"
         android:gravity="center"
-        android:textSize="18dp"
-        android:id="@+id/textView3"/>
-
-    <TextView
-        android:layout_width="100dp"
+        android:textSize="18dp"/>
+    <TextView 
+        android:layout_width="160dp"
         android:layout_height="40dp"
-        android:text="已收"
+        android:text="规格"
         android:gravity="center"
         android:textSize="18dp"/>
     <TextView 
         android:layout_width="100dp"
         android:layout_height="40dp"
-        android:text="实收"
+        android:text="PO"
         android:gravity="center"
         android:textSize="18dp"/>
 

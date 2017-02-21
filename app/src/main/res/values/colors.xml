@@ -11,4 +11,8 @@
     <color name="orange">#ff4400</color>
     <color name="white">#fff</color>
     <color name="black">#000</color>
+    <color name="btn_boom">#ff6f00</color>
+    <color name="btn_sel_boom">#ff4000</color>
+    <color name="btn_no_boom_bule">#00bfff</color>
+    <color name="btn_no_boom_bule_sel">#0087fe</color>
 </resources>

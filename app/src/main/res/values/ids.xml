@@ -11,4 +11,9 @@
     <item name="btn_cancel" type="id"/>
     <item name="btn_submit" type="id"/>
     <item name="btn_query" type="id"/>
+    <item name="right_item_textview_name" type="id"/>
+    <item name="right_item_textview_code_info" type="id"/>
+    <item name="right_item_textview_buy_num" type="id"/>
+    <item name="right_item_textview_existing_num" type="id"/>
+    <item name="right_item_textview_now_num" type="id"/>
 </resources>

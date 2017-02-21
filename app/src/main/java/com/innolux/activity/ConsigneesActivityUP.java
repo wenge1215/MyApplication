@@ -1,8 +1,7 @@
 package com.innolux.activity;
 
 import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -10,6 +9,7 @@ import android.widget.FrameLayout;
 
 import com.innolux.R;
 import com.innolux.bean.BeanClass;
+import com.innolux.fragment.BOOMDetialFragment;
 import com.innolux.fragment.ConsignessDetailFragmentUp;
 import com.innolux.ui.BaseActivity;
 import com.innolux.utils.TestUtils;
@@ -18,7 +18,6 @@ import com.innolux.widget.FavorTitleBar;
 import java.util.ArrayList;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
@@ -52,6 +51,9 @@ public class ConsigneesActivityUP extends BaseActivity implements View.OnFocusCh
     private int mScanType = -1;
     private boolean mIsBOOM;
     private boolean mIsLeft = true;
+    private int CODE_INFO = 1;
+    private int BOOM_CODE = 2;
+    private int PO_CODE = 3;
 
 
     @Override
@@ -79,6 +81,7 @@ public class ConsigneesActivityUP extends BaseActivity implements View.OnFocusCh
                 } else if (FavorTitleBar.RIGHT == oriention) {  //右边被选中
                     mIsLeft = false;
                 }
+                initDetailView();
             }
         });
 
@@ -96,8 +99,8 @@ public class ConsigneesActivityUP extends BaseActivity implements View.OnFocusCh
         mListData = new TestUtils().getListData();
     }
 
-    private void initDetailView(boolean b) {
-        mIsBOOM = b;        //是否为boom收货
+    private void initDetailView() {
+
         if (mIsLeft) {      //如果是左边，展示作业详情
             displayOperationDetial();
         } else {            //展示明细
@@ -109,9 +112,16 @@ public class ConsigneesActivityUP extends BaseActivity implements View.OnFocusCh
 
     private void displayDetial() {
         if (mIsBOOM) {
-
+            toast("boom详情");
+            //TODO fragment 来实现  BOOMDetialFragment
+            BOOMDetialFragment boomDetialFragment = new BOOMDetialFragment(this);
+            boomDetialFragment.setModels(mListData);
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.fl_consignee_detailed, boomDetialFragment, "BOOMDetialFragment")
+                    .commit();
         } else {
-
+            toast("消耗品详情");
+            //TODO fragment 来实现   ConsumeDetialFragment
         }
 
 
@@ -124,7 +134,7 @@ public class ConsigneesActivityUP extends BaseActivity implements View.OnFocusCh
         mConsignessDetailFragment = new ConsignessDetailFragmentUp(this);
         mConsignessDetailFragment.setModels(mListData);
         getSupportFragmentManager().beginTransaction()
-                .add(R.id.fl_consignee_detailed, mConsignessDetailFragment, "ConsignessDetailFragment")
+                .replace(R.id.fl_consignee_detailed, mConsignessDetailFragment, "ConsignessDetailFragment")
                 .commit();
 
         mConsignessDetailFragment.setItemListener(new ConsignessDetailFragmentUp.OnConsignessDetailFragmentListItemListener() {
@@ -155,25 +165,54 @@ public class ConsigneesActivityUP extends BaseActivity implements View.OnFocusCh
     }
 
     private void initDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = getLayoutInflater();
+        View view = inflater.inflate(R.layout.alter_dialog_now_num_view, null);
+        final AlertDialog alertDialog = builder.setView(view).create();
+        alertDialog.show();
 
+        Button btnBoom = (Button) view.findViewById(R.id.now_num_dialog_boom);
+        Button btnNoBoom = (Button) view.findViewById(R.id.now_num_dialog_no_boom);
 
-        builder.setTitle("提示");
-        builder.setMessage("是否为BOOM收料");
-
-        builder.setNegativeButton("非BOOM收料", new DialogInterface.OnClickListener() {
+        btnBoom.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialog, int which) {
-                initDetailView(false);
+            public void onClick(View v) {
+
+                mIsBOOM = true;
+                initDetailView();
+                alertDialog.dismiss();
+
             }
         });
-        builder.setPositiveButton("BOOM收料", new DialogInterface.OnClickListener() {
+
+        btnNoBoom.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialog, int which) {
-                initDetailView(true);
+            public void onClick(View v) {
+                mIsBOOM = false;
+                initDetailView();
+                alertDialog.dismiss();
             }
         });
-        builder.create().show();
+
+        //        builder.setView(view).create().show();
+
+
+        //        builder.setTitle("提示");
+        //        builder.setMessage("是否为BOOM收料");
+        //
+        //        builder.setNegativeButton("非BOOM收料", new DialogInterface.OnClickListener() {
+        //            @Override
+        //            public void onClick(DialogInterface dialog, int which) {
+        //                initDetailView(false);
+        //            }
+        //        });
+        //        builder.setPositiveButton("BOOM收料", new DialogInterface.OnClickListener() {
+        //            @Override
+        //            public void onClick(DialogInterface dialog, int which) {
+        //                initDetailView(true);
+        //            }
+        //        });
+        //        builder.create().show();
     }
 
     @OnClick({R.id.btn_query, R.id.btn_cancel, R.id.btn_submit})
@@ -181,6 +220,14 @@ public class ConsigneesActivityUP extends BaseActivity implements View.OnFocusCh
         switch (view.getId()) {
             case R.id.btn_query:
                 //根据焦点不同，获取不同条码；
+                if (mScanType == CODE_INFO) {
+                    toast("扫描条码信息");
+
+                } else if (mScanType == BOOM_CODE) {
+                    toast("扫描周转箱码");
+                } else if (mScanType == PO_CODE) {
+                    toast("扫描po码");
+                }
 
                 break;
             case R.id.btn_cancel:
@@ -207,6 +254,7 @@ public class ConsigneesActivityUP extends BaseActivity implements View.OnFocusCh
 
     @Override
     public void onClickRightBtn() {
+
         toast("right");
     }
 
@@ -225,21 +273,14 @@ public class ConsigneesActivityUP extends BaseActivity implements View.OnFocusCh
     public void onFocusChange(View v, boolean hasFocus) {
         switch (v.getId()) {
             case R.id.et_materiel_code_info:
-                mScanType = 1;
+                mScanType = CODE_INFO;
                 break;
             case R.id.et_boom_code:
-                mScanType = 2;
+                mScanType = BOOM_CODE;
                 break;
             case R.id.et_po_code:
-                mScanType = 3;
+                mScanType = PO_CODE;
                 break;
         }
-    }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
     }
 }

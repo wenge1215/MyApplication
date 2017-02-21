@@ -22,12 +22,12 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MyRightAdapter extends BaseAdapter {
+public class BOOMDetialRightAdapter extends BaseAdapter {
     private Context context;
     List<BeanClass> list;
     private int mNowNum;
 
-    public MyRightAdapter(Context context, List<BeanClass> models) {
+    public BOOMDetialRightAdapter(Context context, List<BeanClass> models) {
         super();
         this.context = context;
         this.list = models;
@@ -58,7 +58,7 @@ public class MyRightAdapter extends BaseAdapter {
     public View getView(final int position, View convertView, ViewGroup parent) {
         ViewHolder viewHolder;
         if (convertView == null) {
-            convertView = LayoutInflater.from(context).inflate(R.layout.layout_right_item, null);
+            convertView = LayoutInflater.from(context).inflate(R.layout.boom_detial_layout_right_item, null);
             viewHolder = new ViewHolder(convertView);
 
             convertView.setTag(viewHolder);
@@ -118,13 +118,13 @@ public class MyRightAdapter extends BaseAdapter {
                     public void onClick(DialogInterface dialog, int which) {
                         final String nowNum = inputServer.getText().toString().trim();
                         if (TextUtils.isEmpty(nowNum)) {
-                            Toast.makeText(MyRightAdapter.this.context, "您的输入为空，如要修改实收数量，请重新输入", Toast.LENGTH_LONG).show();
+                            Toast.makeText(BOOMDetialRightAdapter.this.context, "您的输入为空，如要修改实收数量，请重新输入", Toast.LENGTH_LONG).show();
                             return;
                         }
                         if (mOnNowNumClickListener != null) {
                             mOnNowNumClickListener.onNowNumClick(nowNum, position);
                         }
-                        Toast.makeText(MyRightAdapter.this.context, nowNum, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(BOOMDetialRightAdapter.this.context, nowNum, Toast.LENGTH_SHORT).show();
 
                         dialog.dismiss();
                     }

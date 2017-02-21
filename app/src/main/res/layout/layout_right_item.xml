@@ -5,35 +5,35 @@
     android:orientation="horizontal" >
 
     <TextView
-        android:id="@+id/right_item_textview_name"
+        android:id="@id/right_item_textview_name"
         android:layout_width="100dp"
         android:layout_height="40dp"
         android:gravity="center"
         android:textSize="18dp" />
 
     <TextView
-        android:id="@+id/right_item_textview_code_info"
+        android:id="@id/right_item_textview_code_info"
         android:layout_width="100dp"
         android:layout_height="40dp"
         android:gravity="center"
         android:textSize="18dp" />
 
     <TextView
-        android:id="@+id/right_item_textview_buy_num"
+        android:id="@id/right_item_textview_buy_num"
         android:layout_width="100dp"
         android:layout_height="40dp"
         android:gravity="center"
         android:textSize="18dp" />
 
     <TextView
-        android:id="@+id/right_item_textview_existing_num"
+        android:id="@id/right_item_textview_existing_num"
         android:layout_width="100dp"
         android:layout_height="40dp"
         android:gravity="center"
         android:textSize="18dp" />
 
     <TextView
-        android:id="@+id/right_item_textview_now_num"
+        android:id="@id/right_item_textview_now_num"
         android:layout_width="100dp"
         android:layout_height="40dp"
         android:gravity="center"
