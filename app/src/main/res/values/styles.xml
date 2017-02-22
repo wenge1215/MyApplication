@@ -1,11 +1,12 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <!--<item name="android:actionOverflowButtonStyle">@style/OverFlow</item>-->
     </style>
 
     <!-- 标题栏 -->
@@ -13,6 +14,33 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/topbar_height</item>
         <item name="android:background">@drawable/drawable_topbar_bg</item>
+    </style>
+    <!--parent="@android:style/Widget.Holo.ActionButton.Overflow"-->
+    <style name="OverFlow">
+        <item name="android:src">@mipmap/query_normal</item>
+    </style>
+
+    <style name="PutawayTextSty">
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:background">#95ddef</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:drawablePadding">3dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/comm_text_size_22</item>
+    </style>
+
+    <style name="EditTextStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">20dp</item>
+        <item name="android:layout_weight">3</item>
+        <item name="android:background">@drawable/bg_edittext</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:singleLine">true</item>
     </style>
 
 </resources>

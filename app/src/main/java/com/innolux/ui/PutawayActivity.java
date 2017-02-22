@@ -13,6 +13,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.innolux.R;
+import com.innolux.activity.BaseActivity;
 import com.innolux.app.Constant;
 import com.innolux.bean.Barcode;
 import com.innolux.utils.BarCodeUtils;
@@ -107,7 +108,7 @@ public class PutawayActivity extends BaseActivity {
 
     @Override
     protected void init() {
-        initActionBar("上架作业");
+//        initActionBar("上架作业");
         initListenter();
         initData();
     }

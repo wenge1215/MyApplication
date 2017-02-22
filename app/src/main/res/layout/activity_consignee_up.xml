@@ -7,7 +7,15 @@
     android:focusableInTouchMode="true"
     android:orientation="vertical"
     >
+<com.innolux.widget.NavigationBar
+    android:id="@id/navigation_bar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:isShowMore="true"
+    app:isShowBack="true"
+    app:NBTitle="收料">
 
+</com.innolux.widget.NavigationBar>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

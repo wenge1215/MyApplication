@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 
 import com.innolux.R;
+import com.innolux.activity.BaseActivity;
 import com.innolux.app.Constant;
 import com.innolux.app.MyApp;
 import com.innolux.utils.SPUtils;
@@ -66,7 +67,7 @@ public class SettingActivity extends BaseActivity {
 
     @Override
     protected void init() {
-        initActionBar("设置");
+//        initActionBar("设置");
         initView();
         initSpinnerAdapter();
         initListener();

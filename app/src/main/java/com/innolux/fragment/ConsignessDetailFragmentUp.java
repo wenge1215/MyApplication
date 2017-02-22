@@ -55,7 +55,6 @@ public class ConsignessDetailFragmentUp extends Fragment {
 
     private List<String> leftlList;
     private List<BeanClass> models;         //rightModel
-    private int mClickPosition = -1;
     private int mNowNum;
     private MyLeftAdapter mMyLeftAdapter;
     private MyRightAdapter mMyRightAdapter;
@@ -84,14 +83,14 @@ public class ConsignessDetailFragmentUp extends Fragment {
         mContentHorsv.setScrollView(mTitleHorsv);
 
         // 添加左边内容数据
-//        mLeftTitleContainer.setBackgroundColor();
+        //        mLeftTitleContainer.setBackgroundColor();
         mLeftTitleContainer.setBackgroundResource(R.color.common_plus_signin_btn_text_dark_disabled);
         mMyLeftAdapter = new MyLeftAdapter(mContext, models);
         mLeftContainerListview.setAdapter(mMyLeftAdapter);
         UtilTools.setListViewHeightBasedOnChildren(mLeftContainerListview);
 
         // 添加右边内容数据
-//        mRightTitleContainer.setBackgroundColor(Color.GRAY);
+        //        mRightTitleContainer.setBackgroundColor(Color.GRAY);
         mMyRightAdapter = new MyRightAdapter(mContext, models);
         mRightContainerListview.setAdapter(mMyRightAdapter);
         UtilTools.setListViewHeightBasedOnChildren(mRightContainerListview);
@@ -101,22 +100,34 @@ public class ConsignessDetailFragmentUp extends Fragment {
     }
 
     private void initListener(MyRightAdapter myRightAdapter) {
+
         /**
-         * 条目实收数量改变的监听
+         * 条目实收数量点击的监听
          */
         myRightAdapter.setOnNowNumClickListener(new MyRightAdapter.onNowNumClickListener() {
             @Override
-            public void onNowNumClick(String nowNum, int position) {
+            public void onNuwNumClick(int position) {
+                setItemColor( position);
+            }
+        });
+
+        /**
+         * 条目实收数量改变的监听
+         */
+        myRightAdapter.setOnNowNumChangeListener(new MyRightAdapter.OnNowNumChangeListener() {
+            @Override
+            public void onNowNumChange(String nowNum, int position) {
                 if (nowNum != null) {
                     mNowNum = Integer.valueOf(nowNum);
                     if (mItemListener != null) {
                         mItemListener.onlistItenNowNomChange(mNowNum, position);
                     }
                 } else {
-                    Toast.makeText(mContext,"您的输入为空，如要修改实收数量，请重新输入",Toast.LENGTH_LONG).show();
+                    Toast.makeText(mContext, "您的输入为空，如要修改实收数量，请重新输入", Toast.LENGTH_LONG).show();
                 }
             }
         });
+
 
         /**
          * 条目点击事件监听
@@ -128,20 +139,22 @@ public class ConsignessDetailFragmentUp extends Fragment {
                 if (mItemListener != null) {
                     mItemListener.onListItemClick(position);
                 }
-                mClickPosition = position;
-                int childCount = parent.getChildCount();
-                for (int i = 0; i < childCount; i++) {
-                    View childAt = parent.getChildAt(i);
-                    if (position == i) {
-                        childAt.setBackgroundColor(Color.RED);
-                    } else {
-                        childAt.setBackgroundColor(Color.TRANSPARENT);
-                    }
-
-                }
+                setItemColor(position);
 
             }
         });
+    }
+
+    private void setItemColor( int position) {
+        int childCount = mRightContainerListview.getChildCount();
+        for (int i = 0; i < childCount; i++) {
+            View childAt = mRightContainerListview.getChildAt(i);
+            if (position == i) {
+                childAt.setBackgroundColor(Color.RED);
+            } else {
+                childAt.setBackgroundColor(Color.TRANSPARENT);
+            }
+        }
     }
 
 
@@ -153,7 +166,6 @@ public class ConsignessDetailFragmentUp extends Fragment {
 
         void onlistItenNowNomChange(int num, int position);
     }
-
     public void setItemListener(OnConsignessDetailFragmentListItemListener itemListener) {
         mItemListener = itemListener;
     }

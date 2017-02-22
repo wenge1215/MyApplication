@@ -1,4 +1,4 @@
-package com.innolux.ui;
+package com.innolux.activity;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -9,17 +9,19 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.KeyEvent;
-import android.view.MenuItem;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.innolux.Barcode;
-import com.innolux.activity.ConsigneesActivityUP;
+import com.innolux.R;
 
 import java.util.List;
 
@@ -47,24 +49,64 @@ public abstract class BaseActivity extends AppCompatActivity {
         registerReceiver(keyReceiver, filter);
     }
 
-    public void initActionBar(String title) {
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle(title);
-        //        actionBar.setIcon(R.mipmap.ic_launcher);
-        actionBar.setDisplayShowHomeEnabled(false);
-        actionBar.setDisplayHomeAsUpEnabled(true);
+//    public void initActionBar(String title) {
+//        ActionBar actionBar = getSupportActionBar();
+//        actionBar.setTitle(title);
+//        //        actionBar.setIcon(R.mipmap.ic_launcher);
+//        //        actionBar.setDisplayShowHomeEnabled(false);
+//        actionBar.setDisplayHomeAsUpEnabled(true);
+//
+//
+//    }
+//
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        switch (item.getItemId()) {
+//            case android.R.id.home:
+//                finish();
+//                break;
+//            default:
+//                break;
+//        }
+//        return super.onOptionsItemSelected(item);
+//    }
+
+
+    public void initDialog(String leftStr,String rightStr) {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = getLayoutInflater();
+        View view = inflater.inflate(R.layout.alter_dialog_now_num_view, null);
+        final AlertDialog alertDialog = builder.setView(view).create();
+        alertDialog.show();
+
+        final Button leftBtn = (Button) view.findViewById(R.id.now_num_dialog_boom);
+        Button rightBtn = (Button) view.findViewById(R.id.now_num_dialog_no_boom);
+        leftBtn.setText(leftStr);
+        leftBtn.setTextSize(TypedValue.COMPLEX_UNIT_PX,getResources().getDimensionPixelSize(R.dimen.comm_text_size_22));
+        rightBtn.setText(rightStr);
+        rightBtn.setTextSize(TypedValue.COMPLEX_UNIT_PX,getResources().getDimensionPixelSize(R.dimen.comm_text_size_22));
+        leftBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onLeftBtnClick(alertDialog);
+            }
+        });
+
+        rightBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onRightBtnClick(alertDialog);
+            }
+        });
+
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                finish();
-                break;
-            default:
-                break;
-        }
-        return super.onOptionsItemSelected(item);
+    public  void onRightBtnClick(AlertDialog alertDialog){
+
+    }
+
+    public  void onLeftBtnClick(AlertDialog alertDialog){
+
     }
 
     protected void init() {
@@ -95,6 +137,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void toast(String msg) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
+
     protected void longToast(String msg) {
         Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
     }
@@ -221,8 +264,8 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-//        RFIDUtils rfidUtils = new RFIDUtils(this);
-//        rfidUtils.closeReaner();
+        //        RFIDUtils rfidUtils = new RFIDUtils(this);
+        //        rfidUtils.closeReaner();
     }
 
     @Override
@@ -258,6 +301,5 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         builder.create().show();
     }
-
 
 }

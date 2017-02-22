@@ -1,7 +1,7 @@
 package com.innolux.activity;
 
 import android.app.AlertDialog;
-import android.view.LayoutInflater;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,9 +11,9 @@ import com.innolux.R;
 import com.innolux.bean.BeanClass;
 import com.innolux.fragment.BOOMDetialFragment;
 import com.innolux.fragment.ConsignessDetailFragmentUp;
-import com.innolux.ui.BaseActivity;
 import com.innolux.utils.TestUtils;
 import com.innolux.widget.FavorTitleBar;
+import com.innolux.widget.NavigationBar;
 
 import java.util.ArrayList;
 
@@ -43,6 +43,8 @@ public class ConsigneesActivityUP extends BaseActivity implements View.OnFocusCh
     Button mBtnSubmit;
     @BindView(R.id.consignees_favor_title_bar)
     FavorTitleBar mConsigneesFavorTitleBar;
+    @BindView(R.id.navigation_bar)
+    NavigationBar mNavigationBar;
 
     private int mCurrentClickItem;
     private ArrayList<BeanClass> mListData;
@@ -63,9 +65,36 @@ public class ConsigneesActivityUP extends BaseActivity implements View.OnFocusCh
     }
 
     @Override
+    public void onRightBtnClick(AlertDialog alertDialog) {
+        mIsBOOM = false;
+        initDetailView();
+        alertDialog.dismiss();
+    }
+
+    @Override
+    public void onLeftBtnClick(AlertDialog alertDialog) {
+        mIsBOOM = true;
+        initDetailView();
+        alertDialog.dismiss();
+        Log.e("tag","misBOOM:"+mIsBOOM);
+    }
+
+
+    @Override
     protected void init() {
-        initActionBar("收料作业");
-        initDialog();
+        mNavigationBar.setNavigationBarListener(new NavigationBar.NavigationBarListener() {
+            @Override
+            public void onClickBack() {
+                finish();
+            }
+
+            @Override
+            public void onClickMore() {
+                toast("query");
+                hideKeyboard();
+            }
+        });
+        initDialog("BOOM","非BOOM");
         initData();     //初始化模拟数据
         initFavorTitleBarz();
         initEditTextFoucsLis();
@@ -164,56 +193,36 @@ public class ConsigneesActivityUP extends BaseActivity implements View.OnFocusCh
         });
     }
 
-    private void initDialog() {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        LayoutInflater inflater = getLayoutInflater();
-        View view = inflater.inflate(R.layout.alter_dialog_now_num_view, null);
-        final AlertDialog alertDialog = builder.setView(view).create();
-        alertDialog.show();
-
-        Button btnBoom = (Button) view.findViewById(R.id.now_num_dialog_boom);
-        Button btnNoBoom = (Button) view.findViewById(R.id.now_num_dialog_no_boom);
-
-        btnBoom.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                mIsBOOM = true;
-                initDetailView();
-                alertDialog.dismiss();
-
-            }
-        });
-
-        btnNoBoom.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mIsBOOM = false;
-                initDetailView();
-                alertDialog.dismiss();
-            }
-        });
-
-        //        builder.setView(view).create().show();
-
-
-        //        builder.setTitle("提示");
-        //        builder.setMessage("是否为BOOM收料");
-        //
-        //        builder.setNegativeButton("非BOOM收料", new DialogInterface.OnClickListener() {
-        //            @Override
-        //            public void onClick(DialogInterface dialog, int which) {
-        //                initDetailView(false);
-        //            }
-        //        });
-        //        builder.setPositiveButton("BOOM收料", new DialogInterface.OnClickListener() {
-        //            @Override
-        //            public void onClick(DialogInterface dialog, int which) {
-        //                initDetailView(true);
-        //            }
-        //        });
-        //        builder.create().show();
-    }
+//    private void initDialog() {
+//        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+//        LayoutInflater inflater = getLayoutInflater();
+//        View view = inflater.inflate(R.layout.alter_dialog_now_num_view, null);
+//        final AlertDialog alertDialog = builder.setView(view).create();
+//        alertDialog.show();
+//
+//        Button lifeBtn = (Button) view.findViewById(R.id.now_num_dialog_boom);
+//        Button rightBtn = (Button) view.findViewById(R.id.now_num_dialog_no_boom);
+//
+//        lifeBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                mIsBOOM = true;
+//                initDetailView();
+//                alertDialog.dismiss();
+//
+//            }
+//        });
+//
+//        rightBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                mIsBOOM = false;
+//                initDetailView();
+//                alertDialog.dismiss();
+//            }
+//        });
+//
+//    }
 
     @OnClick({R.id.btn_query, R.id.btn_cancel, R.id.btn_submit})
     public void onClick(View view) {
@@ -231,8 +240,18 @@ public class ConsigneesActivityUP extends BaseActivity implements View.OnFocusCh
 
                 break;
             case R.id.btn_cancel:
+                mListData.clear();
+                mConsignessDetailFragment.notifyChangeDatas(mListData);
+
                 break;
             case R.id.btn_submit:
+                if (mIsBOOM) {
+                    toast("BOOM提交");
+                } else {
+                    toast("非BOOM提交");
+                }
+
+
                 break;
         }
     }

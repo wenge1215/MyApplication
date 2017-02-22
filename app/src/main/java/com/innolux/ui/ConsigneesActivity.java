@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.innolux.Barcode;
 import com.innolux.R;
+import com.innolux.activity.BaseActivity;
 import com.innolux.app.Constant;
 import com.innolux.utils.BarCodeUtils;
 import com.innolux.utils.RFIDUtils;
@@ -90,7 +91,7 @@ public class ConsigneesActivity extends BaseActivity {
 
     @Override
     protected void init() {
-        initActionBar("收料作业");
+//        initActionBar("收料作业");
         initCBListener();
 //        initData();     //测试数据
         initListItemListener();

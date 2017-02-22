@@ -1,0 +1,74 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <com.innolux.widget.NavigationBar
+        android:id="@id/navigation_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:NBTitle="上架"
+        app:isShowBack="true"
+        app:isShowMore="true">
+
+    </com.innolux.widget.NavigationBar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="身份码"
+            android:textSize="@dimen/comm_text_size_20"
+            />
+
+        <EditText
+            android:id="@id/et_materiel_code_info"
+            style="@style/EditTextStyle"
+            android:hint="请读取周转箱身份码/物料条码"
+            />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="储位码"
+            android:textSize="@dimen/comm_text_size_20"
+            />
+
+        <EditText
+            android:id="@id/et_boom_code"
+            android:hint="请读取周转箱身份码"
+            style="@style/EditTextStyle"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:id="@+id/fl_detailed"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            ></FrameLayout>
+        <include layout="@layout/btn_layout_view"/>
+    </LinearLayout>
+</LinearLayout>

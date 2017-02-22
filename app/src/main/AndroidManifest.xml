@@ -18,7 +18,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity">
+            android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
@@ -48,14 +48,8 @@
         <activity android:name=".ui.SettingActivity"/>
         <activity
             android:name=".ui.TallyActivity"></activity>
-        <activity android:name=".ui.HTableActivity">
-        </activity>
-        <activity android:name=".ui.HListViewActivity">
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN"/>-->
-                <!--<category android:name="android.intent.category.LAUNCHER"/>-->
-            <!--</intent-filter>-->
-        </activity>
+        <activity android:name=".activity.activityImpl.BuyPutawayActivity"/>
+        <activity android:name=".activity.PutawayActivityUP"/>
         <service android:name=".service.ScanService">
             <action android:name="com.my.scan"/>
             <category android:name="android.intent.category.DEFAULT"/>

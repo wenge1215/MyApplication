@@ -76,6 +76,9 @@ public class MyRightAdapter extends BaseAdapter {
         viewHolder.mRightItemTextviewNowNum.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (mOnNowNumClickListener != null) {
+                    mOnNowNumClickListener.onNuwNumClick(position);
+                }
                 TextView v1 = (TextView) v;
                 Toast.makeText(context, v1.getText(), Toast.LENGTH_SHORT).show();
                 //弹出dialog修改数量
@@ -122,7 +125,7 @@ public class MyRightAdapter extends BaseAdapter {
                             return;
                         }
                         if (mOnNowNumClickListener != null) {
-                            mOnNowNumClickListener.onNowNumClick(nowNum, position);
+                            mOnNowNumChangeListener.onNowNumChange(nowNum, position);
                         }
                         Toast.makeText(MyRightAdapter.this.context, nowNum, Toast.LENGTH_SHORT).show();
 
@@ -144,10 +147,20 @@ public class MyRightAdapter extends BaseAdapter {
     private onNowNumClickListener mOnNowNumClickListener;
 
     public interface onNowNumClickListener {
-        void onNowNumClick(String nowNum, int position);
+        //实收数量点击的监听
+        void onNuwNumClick(int position);
     }
-
     public void setOnNowNumClickListener(onNowNumClickListener onNowNumClickListener) {
         mOnNowNumClickListener = onNowNumClickListener;
     }
+
+    private OnNowNumChangeListener mOnNowNumChangeListener;
+    public interface OnNowNumChangeListener{
+        //实收数量改变的监听
+        void onNowNumChange(String nowNum, int position);
+    }
+    public void setOnNowNumChangeListener(OnNowNumChangeListener l) {
+        mOnNowNumChangeListener = l;
+    }
+
 }

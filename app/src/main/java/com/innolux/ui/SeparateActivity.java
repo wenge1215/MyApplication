@@ -1,6 +1,7 @@
 package com.innolux.ui;
 
 import com.innolux.R;
+import com.innolux.activity.BaseActivity;
 
 /**
  * 创建者： WENGE .

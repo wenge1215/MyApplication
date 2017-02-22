@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.innolux.R;
+import com.innolux.activity.BaseActivity;
 import com.innolux.app.Constant;
 import com.innolux.bean.BarcodeDetail;
 import com.innolux.utils.BarCodeUtils;
@@ -71,7 +72,7 @@ public class DetailsActivity extends BaseActivity {
 
     @Override
     protected void init() {
-        initActionBar("物料详情");
+//        initActionBar("物料详情");
         initIntent();
         initChickBoxLisenter();
 //        Thread thread = new InventoryThread();

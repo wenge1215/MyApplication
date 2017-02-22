@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    >
+
+    <com.innolux.widget.NavigationBar
+        android:id="@id/navigation_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </com.innolux.widget.NavigationBar>
+
+    <LinearLayout
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/putaway_tv_buy"
+            style="@style/PutawayTextSty"
+            android:drawableTop="@mipmap/putaway"
+            android:text="请购上架"/>
+
+        <TextView
+            android:id="@+id/putaway_tv_dismantle"
+            style="@style/PutawayTextSty"
+            android:drawableTop="@mipmap/putaway"
+            android:text="拆夹上架"/>
+
+        <TextView
+            android:id="@+id/putaway_tv_pole"
+            style="@style/PutawayTextSty"
+            android:drawableTop="@mipmap/putaway"
+            android:text="电极上架"/>
+    </LinearLayout>
+</LinearLayout>

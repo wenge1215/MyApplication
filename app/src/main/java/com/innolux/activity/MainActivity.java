@@ -1,8 +1,5 @@
-package com.innolux;
+package com.innolux.activity;
 
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -11,19 +8,18 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.innolux.activity.ConsigneesActivityUP;
+import com.innolux.R;
 import com.innolux.ui.AbnormalActivity;
 import com.innolux.ui.BInLocationActivity;
-import com.innolux.ui.BaseActivity;
 import com.innolux.ui.ClampingActivity;
 import com.innolux.ui.DetailsActivity;
 import com.innolux.ui.PositionActivity;
-import com.innolux.ui.PutawayActivity;
 import com.innolux.ui.RollbackActivity;
 import com.innolux.ui.SeparateActivity;
 import com.innolux.ui.SettingActivity;
 import com.innolux.ui.TakeStockActivity;
 import com.innolux.ui.TallyActivity;
+import com.innolux.widget.NavigationBar;
 
 import java.util.List;
 import java.util.Map;
@@ -31,10 +27,13 @@ import java.util.Map;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+
 public class MainActivity extends BaseActivity {
 
     @BindView(R.id.gtid_view)
     GridView mGtidView;
+    @BindView(R.id.navigation_bar)
+    NavigationBar mNavigationBar;
 
     private List<Map<String, Object>> data_list;
 
@@ -42,11 +41,11 @@ public class MainActivity extends BaseActivity {
     private int[] icon = {R.mipmap.data_syn, R.mipmap.backlog, R.mipmap.a,
             R.mipmap.b, R.mipmap.setting, R.mipmap.log_record,
             R.mipmap.operation_recode, R.mipmap.production, R.mipmap.purchase_manager,
-            R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher};
+            R.mipmap.ic_launcher, R.mipmap.ic_launcher, R.mipmap.ic_launcher};
     private String[] iconName = {"收料作业", "上架作业", "理货作业",
-            "装夹作业", "拆夹作业","回退绑定", "储位调整",
+            "装夹作业", "拆夹作业", "回退绑定", "储位调整",
             "盘点作业", "工位签收",
-            "异常作业", "物料查询","设置"};
+            "异常作业", "物料查询", "设置"};
 
     @Override
     public int getLayoutResID() {
@@ -54,42 +53,38 @@ public class MainActivity extends BaseActivity {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.overflow, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_settings:
-                goTo(SettingActivity.class);
-                break;
-            case R.id.action_explain:
-                break;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
     protected void init() {
-        initActionBar("菜单");
+        initNavigationBar();
         //配置适配器
         mGtidView.setAdapter(new GridAdapter());
         mGtidView.setOnItemClickListener(mOnItemClickListener);
     }
+
+    private void initNavigationBar() {
+        mNavigationBar.setNavigationBarListener(new NavigationBar.NavigationBarListener() {
+            @Override
+            public void onClickBack() {
+                finish();
+            }
+
+            @Override
+            public void onClickMore() {
+
+            }
+        });
+    }
+
     private AdapterView.OnItemClickListener mOnItemClickListener = new AdapterView.OnItemClickListener() {
         @Override
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
             switch (i) {
                 case 0:
-//                    toast(getResources().getString(R.string.repertory_search));
+                    //                    toast(getResources().getString(R.string.repertory_search));
                     goTo(ConsigneesActivityUP.class);
                     break;
                 case 1:
-//                    toast(getResources().getString(R.string.goods_search));
-                    goTo(PutawayActivity.class);
+                    //                    toast(getResources().getString(R.string.goods_search));
+                    goTo(PutawayActivityUP.class);
                     break;
                 case 2:
                     toast("理货作业");

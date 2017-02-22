@@ -21,6 +21,7 @@ import com.hsm.barcode.DecoderConfigValues;
 import com.hsm.barcode.DecoderException;
 import com.innolux.Barcode;
 import com.innolux.R;
+import com.innolux.activity.BaseActivity;
 import com.innolux.utils.BarCodeUtils;
 import com.innolux.utils.WarningToneUtil;
 

@@ -15,6 +15,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.innolux.R;
+import com.innolux.activity.BaseActivity;
 import com.innolux.app.Constant;
 import com.innolux.bean.Barcode;
 import com.innolux.utils.BarCodeUtils;
@@ -111,7 +112,7 @@ public class TallyActivity extends BaseActivity implements CompoundButton.OnChec
 
     @Override
     protected void init() {
-        initActionBar("理货作业");
+//        initActionBar("理货作业");
         initCBNoamol();
         initCBListener();
         initData();
