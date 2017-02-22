@@ -19,7 +19,7 @@ import butterknife.ButterKnife;
 /**
  * 创建者： WENGE
  * 创建日期： wenge on 2017/2/16.
- * 描述：收料详情
+ * 描述：消耗品详情
  */
 
 public class ConsumeDetialFragment extends Fragment {
