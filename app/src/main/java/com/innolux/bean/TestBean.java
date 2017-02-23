@@ -7,36 +7,14 @@ public class TestBean {
 
 
     /**
-     * bomorder : XX
-     * box_type : XX
-     * pro_list : [{"modelno":"XX","priceno":"XX","procount":"XX","proname":"XX","prono":"XX","spec":"XX"}]
+     * matter_list : [{"bednewmatcap":"ssssss","brpurchasecap":"XXX","brpurchaseokcap":"XXX","mbmatnum":"XXX","mbproduct":"ddddd","mbstandard":"XXX","ngnum":"XXX","nlphnumber":"XXX","storage":"XXX"}]
      * reason : XX
      * result : 1
-     * storage : XX
      */
 
-    private String bomorder;
-    private String box_type;
     private String reason;
     private String result;
-    private String storage;
-    private List<ProListBean> pro_list;
-
-    public String getBomorder() {
-        return bomorder;
-    }
-
-    public void setBomorder(String bomorder) {
-        this.bomorder = bomorder;
-    }
-
-    public String getBox_type() {
-        return box_type;
-    }
-
-    public void setBox_type(String box_type) {
-        this.box_type = box_type;
-    }
+    private List<MatterListBean> matter_list;
 
     public String getReason() {
         return reason;
@@ -54,85 +32,107 @@ public class TestBean {
         this.result = result;
     }
 
-    public String getStorage() {
-        return storage;
+    public List<MatterListBean> getMatter_list() {
+        return matter_list;
     }
 
-    public void setStorage(String storage) {
-        this.storage = storage;
+    public void setMatter_list(List<MatterListBean> matter_list) {
+        this.matter_list = matter_list;
     }
 
-    public List<ProListBean> getPro_list() {
-        return pro_list;
-    }
-
-    public void setPro_list(List<ProListBean> pro_list) {
-        this.pro_list = pro_list;
-    }
-
-    public static class ProListBean {
+    public static class MatterListBean {
         /**
-         * modelno : XX
-         * priceno : XX
-         * procount : XX
-         * proname : XX
-         * prono : XX
-         * spec : XX
+         * bednewmatcap : ssssss
+         * brpurchasecap : XXX
+         * brpurchaseokcap : XXX
+         * mbmatnum : XXX
+         * mbproduct : ddddd
+         * mbstandard : XXX
+         * ngnum : XXX
+         * nlphnumber : XXX
+         * storage : XXX
          */
 
-        private String modelno;
-        private String priceno;
-        private String procount;
-        private String proname;
-        private String prono;
-        private String spec;
+        private String bednewmatcap;
+        private String brpurchasecap;
+        private String brpurchaseokcap;
+        private String mbmatnum;
+        private String mbproduct;
+        private String mbstandard;
+        private String ngnum;
+        private String nlphnumber;
+        private String storage;
 
-        public String getModelno() {
-            return modelno;
+        public String getBednewmatcap() {
+            return bednewmatcap;
         }
 
-        public void setModelno(String modelno) {
-            this.modelno = modelno;
+        public void setBednewmatcap(String bednewmatcap) {
+            this.bednewmatcap = bednewmatcap;
         }
 
-        public String getPriceno() {
-            return priceno;
+        public String getBrpurchasecap() {
+            return brpurchasecap;
         }
 
-        public void setPriceno(String priceno) {
-            this.priceno = priceno;
+        public void setBrpurchasecap(String brpurchasecap) {
+            this.brpurchasecap = brpurchasecap;
         }
 
-        public String getProcount() {
-            return procount;
+        public String getBrpurchaseokcap() {
+            return brpurchaseokcap;
         }
 
-        public void setProcount(String procount) {
-            this.procount = procount;
+        public void setBrpurchaseokcap(String brpurchaseokcap) {
+            this.brpurchaseokcap = brpurchaseokcap;
         }
 
-        public String getProname() {
-            return proname;
+        public String getMbmatnum() {
+            return mbmatnum;
         }
 
-        public void setProname(String proname) {
-            this.proname = proname;
+        public void setMbmatnum(String mbmatnum) {
+            this.mbmatnum = mbmatnum;
         }
 
-        public String getProno() {
-            return prono;
+        public String getMbproduct() {
+            return mbproduct;
         }
 
-        public void setProno(String prono) {
-            this.prono = prono;
+        public void setMbproduct(String mbproduct) {
+            this.mbproduct = mbproduct;
         }
 
-        public String getSpec() {
-            return spec;
+        public String getMbstandard() {
+            return mbstandard;
         }
 
-        public void setSpec(String spec) {
-            this.spec = spec;
+        public void setMbstandard(String mbstandard) {
+            this.mbstandard = mbstandard;
+        }
+
+        public String getNgnum() {
+            return ngnum;
+        }
+
+        public void setNgnum(String ngnum) {
+            this.ngnum = ngnum;
+        }
+
+        public String getNlphnumber() {
+            return nlphnumber;
+        }
+
+        public void setNlphnumber(String nlphnumber) {
+            this.nlphnumber = nlphnumber;
+        }
+
+        public String getStorage() {
+            return storage;
+        }
+
+        public void setStorage(String storage) {
+            this.storage = storage;
         }
     }
 }

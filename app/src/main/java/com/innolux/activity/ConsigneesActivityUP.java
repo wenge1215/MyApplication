@@ -11,6 +11,7 @@ import com.innolux.R;
 import com.innolux.bean.BeanClass;
 import com.innolux.fragment.BOOMDetialFragment;
 import com.innolux.fragment.ConsignessDetailFragmentUp;
+import com.innolux.fragment.ConsumeDetialFragment;
 import com.innolux.utils.TestUtils;
 import com.innolux.widget.FavorTitleBar;
 import com.innolux.widget.NavigationBar;
@@ -19,6 +20,8 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+
+import static com.innolux.R.id.fl_consignee_detailed;
 
 /**
  * 创建者： WENGE .
@@ -35,7 +38,7 @@ public class ConsigneesActivityUP extends BaseActivity implements View.OnFocusCh
     EditText mEtPoCode;
     @BindView(R.id.btn_query)
     Button mBtnScan;
-    @BindView(R.id.fl_consignee_detailed)
+    @BindView(fl_consignee_detailed)
     FrameLayout mFlConsigneeDetailed;
     @BindView(R.id.btn_cancel)
     Button mBtnCancel;
@@ -146,11 +149,16 @@ public class ConsigneesActivityUP extends BaseActivity implements View.OnFocusCh
             BOOMDetialFragment boomDetialFragment = new BOOMDetialFragment(this);
             boomDetialFragment.setModels(mListData);
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fl_consignee_detailed, boomDetialFragment, "BOOMDetialFragment")
+                    .replace(fl_consignee_detailed, boomDetialFragment, "BOOMDetialFragment")
                     .commit();
         } else {
             toast("消耗品详情");
             //TODO fragment 来实现   ConsumeDetialFragment
+            ConsumeDetialFragment consumeDetialFragment = new ConsumeDetialFragment(this);
+            consumeDetialFragment.setModels(mListData);
+            getSupportFragmentManager().beginTransaction()
+                    .replace(fl_consignee_detailed, consumeDetialFragment, "ConsumeDetialFragment")
+                    .commit();
         }
 
 
@@ -163,7 +171,7 @@ public class ConsigneesActivityUP extends BaseActivity implements View.OnFocusCh
         mConsignessDetailFragment = new ConsignessDetailFragmentUp(this);
         mConsignessDetailFragment.setModels(mListData);
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fl_consignee_detailed, mConsignessDetailFragment, "ConsignessDetailFragment")
+                .replace(fl_consignee_detailed, mConsignessDetailFragment, "ConsignessDetailFragment")
                 .commit();
 
         mConsignessDetailFragment.setItemListener(new ConsignessDetailFragmentUp.OnConsignessDetailFragmentListItemListener() {
@@ -184,6 +192,7 @@ public class ConsigneesActivityUP extends BaseActivity implements View.OnFocusCh
              */
             @Override
             public void onlistItenNowNomChange(int num, int position) {
+                mCurrentClickItem = position;
                 longToast("将：" + position + "行实收数量修改为：" + num);
 
                 BeanClass beanClass = mListData.get(position);

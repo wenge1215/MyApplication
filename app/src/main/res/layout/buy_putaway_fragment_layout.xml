@@ -38,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal" >
 
-                <include layout="@layout/boom_detial_layout_right_tab" />
+                <include layout="@layout/buy_putaway_fragment_layout_right_tab" />
             </LinearLayout>
         </com.innolux.widget.SyncHorizontalScrollView>
     </LinearLayout>

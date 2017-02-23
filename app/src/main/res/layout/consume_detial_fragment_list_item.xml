@@ -1,0 +1,16 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+    android:orientation="horizontal">
+   <TextView
+       android:id="@+id/consume_detial_fragment_item_name"
+       android:text="@string/app_name"
+       style="@style/ConsumeDetialFragmentItemStyle"/>
+
+    <TextView
+        android:id="@+id/consume_detial_fragment_item_detial"
+        style="@style/ConsumeDetialFragmentItemStyle"
+        android:text="@string/app_name"/>
+
+</LinearLayout>

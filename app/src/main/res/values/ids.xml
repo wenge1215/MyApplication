@@ -16,4 +16,11 @@
     <item name="right_item_textview_buy_num" type="id"/>
     <item name="right_item_textview_existing_num" type="id"/>
     <item name="right_item_textview_now_num" type="id"/>
+    <item name="consume_detial_fragment_list_view" type="id"/>
+    <item name="right_item_textview_bin_location" type="id">储位</item>
+    <item name="right_item_textview_in_storage_num" type="id">入库数量</item>
+    <item name="right_item_textview_NG" type="id">NG数量</item>
+    <item name="right_item_textview_putaway_num" type="id">上架数量</item>
+    <item name="right_item_textview_detial_id" type="id">明细ID</item>
+    <item name="right_item_textview_mbmat_num" type="id">料号</item>
 </resources>

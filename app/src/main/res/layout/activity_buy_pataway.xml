@@ -31,7 +31,7 @@
         <EditText
             android:id="@id/et_materiel_code_info"
             style="@style/EditTextStyle"
-            android:hint="请读取周转箱身份码/物料条码"
+            android:hint="周转箱码/物料条码"
             />
 
 
@@ -53,11 +53,12 @@
 
         <EditText
             android:id="@id/et_boom_code"
-            android:hint="请读取周转箱身份码"
+            android:hint="请读取储位码"
             style="@style/EditTextStyle"/>
     </LinearLayout>
 
     <LinearLayout
+        android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">

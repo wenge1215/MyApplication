@@ -124,7 +124,7 @@ public class MyRightAdapter extends BaseAdapter {
                             Toast.makeText(MyRightAdapter.this.context, "您的输入为空，如要修改实收数量，请重新输入", Toast.LENGTH_LONG).show();
                             return;
                         }
-                        if (mOnNowNumClickListener != null) {
+                        if (mOnNowNumChangeListener != null) {
                             mOnNowNumChangeListener.onNowNumChange(nowNum, position);
                         }
                         Toast.makeText(MyRightAdapter.this.context, nowNum, Toast.LENGTH_SHORT).show();
