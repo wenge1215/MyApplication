@@ -1,6 +1,5 @@
 package com.innolux.activity.activityImpl;
 
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -16,8 +15,9 @@ import com.innolux.utils.BarCodeUtils;
 import com.innolux.widget.NavigationBar;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
+
+import static com.innolux.R.id.dismantel_detail_layout_group;
 
 /**
  * 创建者： WENGE
@@ -70,7 +70,7 @@ public class DismantlePutawayActivity extends BaseActivity implements View.OnFoc
     TextView mDismantelTvBinLocation;
     @BindView(R.id.dismantel_layout_parts)
     LinearLayout mDismantelLayoutParts;
-    @BindView(R.id.dismantel_detail_layout_group)
+    @BindView(dismantel_detail_layout_group)
     LinearLayout mDismantelDetailLayoutGroup;
 
 
@@ -83,10 +83,13 @@ public class DismantlePutawayActivity extends BaseActivity implements View.OnFoc
 
     @Override
     protected void init() {
+        initListener();
+
+    }
+
+    private void initListener() {
         initNBlistener();
         initEditTextFocusLis();
-
-
     }
 
     private void initEditTextFocusLis() {
@@ -127,16 +130,15 @@ public class DismantlePutawayActivity extends BaseActivity implements View.OnFoc
         if (!TextUtils.isEmpty(scan)) {
             switch (mScanType) {
                 case TYPE_PART:         //配件身份码或储位码
-                    mEtMaterielCodeInfo.setText(scan);
+                    mEtMaterielDetailCodeInfo.setText(scan);
                     //TODO 请求获取配件信息
                     initPartInfo();
-                    mDismantelTvBinLocation.setText("铜储位");
-                    mDismantelTvBaseBinLocation.setText("底座储位");
+
 
                     break;
                 case TYPE_FINISHED:     //电极或刀具身份码:
-                    mEtMaterielDetailCodeInfo.setText(scan);
                     //TODO 请求获取电极信息
+                    mEtMaterielCodeInfo.setText(scan);
 
                     //初始化点击信息，数据来源于服务端
                     initFinishedInfo();
@@ -174,21 +176,22 @@ public class DismantlePutawayActivity extends BaseActivity implements View.OnFoc
     public void onFocusChange(View v, boolean hasFocus) {
         switch (v.getId()) {
             case R.id.et_materiel_code_info:
-                mScanType = TYPE_PART;
+                mScanType = TYPE_FINISHED;
                 break;
             case R.id.et_materiel_detail_code_info:
-                mScanType = TYPE_FINISHED;
+                mScanType = TYPE_PART;
                 break;
         }
 
     }
 
-    @OnClick({R.id.dismantel_layout_base, R.id.dismantel_layout_parts, R.id.dismantle_btn_save, R.id.btn_cancel, R.id.btn_submit})
+    @OnClick({R.id.dismantel_layout_base, R.id.dismantel_layout_parts,
+            R.id.dismantle_btn_save, R.id.btn_cancel, R.id.btn_submit})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.dismantel_layout_base:
                 //TODO  获取底座的信息
-
+                mDismantelDetailLayoutGroup.setVisibility(View.VISIBLE);
 
                 break;
             case R.id.dismantel_layout_parts:
@@ -201,13 +204,7 @@ public class DismantlePutawayActivity extends BaseActivity implements View.OnFoc
                 break;
             case R.id.btn_submit:
                 break;
-        }
-    }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
+        }
     }
 }

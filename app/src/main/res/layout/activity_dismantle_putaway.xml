@@ -64,10 +64,7 @@
 
             <EditText
                 android:id="@+id/dismantel_et_goos_name"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                android:enabled="false"/>
+                style="@style/DismantelEnabledEditTextStyle"/>
 
             <TextView
                 android:layout_width="0dp"
@@ -79,10 +76,8 @@
 
             <EditText
                 android:id="@+id/dismantel_et_standard"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                android:enabled="false"/>
+                style="@style/DismantelEnabledEditTextStyle"
+                />
             />
         </LinearLayout>
 
@@ -101,10 +96,8 @@
 
             <EditText
                 android:id="@+id/dismantel_et_type"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                android:enabled="false"/>
+                style="@style/DismantelEnabledEditTextStyle"
+                />
 
             <TextView
                 android:layout_width="0dp"
@@ -116,10 +109,9 @@
 
             <EditText
                 android:id="@+id/dismantel_et_bin_location"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                android:enabled="false"/>
+                style="@style/DismantelEnabledEditTextStyle"
+
+                />
             />
         </LinearLayout>
     </LinearLayout>
@@ -168,41 +160,42 @@
 
             <TextView
                 android:id="@+id/dismantel_tv_base_name"
-                android:text="底座"
                 style="@style/DismantleaTextStyle"
-               />
+                android:text="底座"
+                />
 
             <TextView
                 android:id="@+id/dismantel_tv_pedestal_num"
-                android:text="1"
                 style="@style/DismantleaTextStyle"
+                android:text="1"
                 />
 
             <TextView
 
                 android:id="@+id/dismantel_tv_base_bin_location"
                 style="@style/DismantleaTextStyle"
-               />
+                />
         </LinearLayout>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/layout_title"/>
+
         <LinearLayout
             android:id="@+id/dismantel_layout_parts"
             android:layout_width="match_parent"
             android:layout_height="50dp">
 
             <TextView
-                android:text="铜"
+                android:id="@+id/dismantel_tv_name"
                 style="@style/DismantleaTextStyle"
-                android:id="@+id/dismantel_tv_name"/>
+                android:text="铜"/>
 
             <TextView
                 android:id="@+id/dismantel_tv_num"
-                android:text="1"
                 style="@style/DismantleaTextStyle"
+                android:text="1"
                 />
 
             <TextView
@@ -211,27 +204,33 @@
                 />
         </LinearLayout>
     </LinearLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/layout_title"/>
+
     <LinearLayout
-        android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="5dp"
         android:orientation="vertical">
+
         <LinearLayout
             android:id="@+id/dismantel_detail_layout_group"
-            android:visibility="invisible"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:visibility="invisible">
+
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
                 <include layout="@layout/dismantle_putaway_detail_layout"/>
             </ScrollView>
         </LinearLayout>
+
         <include layout="@layout/btn_layout_view"/>
     </LinearLayout>
 

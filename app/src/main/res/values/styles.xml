@@ -83,4 +83,14 @@
         <item name="android:textSize">@dimen/comm_text_size_20</item>
     </style>
 
+    <style name="DismantelEnabledEditTextStyle">
+        <item name="android:textColor">@color/somber</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">@dimen/comm_text_size_20</item>
+        <item name="android:enabled">false</item>
+    </style>
+
 </resources>
