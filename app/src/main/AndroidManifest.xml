@@ -50,6 +50,7 @@
             android:name=".ui.TallyActivity"></activity>
         <activity android:name=".activity.activityImpl.BuyPutawayActivity"/>
         <activity android:name=".activity.PutawayActivityUP"/>
+        <activity android:name=".activity.activityImpl.DismantlePutawayActivity"/>
         <service android:name=".service.ScanService">
             <action android:name="com.my.scan"/>
             <category android:name="android.intent.category.DEFAULT"/>

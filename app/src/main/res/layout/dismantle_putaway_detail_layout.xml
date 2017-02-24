@@ -1,0 +1,138 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/layout_title"
+        android:gravity="center"
+        android:text="物料明细"
+        android:textSize="@dimen/comm_text_size_20"
+        android:id="@+id/dismantel_detail_tv_titlw"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="66dp"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="身份码/储位码"
+            android:textSize="@dimen/comm_text_size_20"
+            />
+
+        <EditText
+            android:id="@+id/et_materiel_detail_code_info"
+            style="@style/EditTextStyle"
+            android:hint="成品身份码"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center">
+
+            <TextView
+                style="@style/DismantlePutawayDetailTVStyle"
+                android:text="品名"
+                />
+
+            <EditText
+                android:id="@+id/dismantel_detail_et_goos_name"
+                style="@style/DismantlePutawayDetailETStyle"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center">
+
+            <TextView
+                style="@style/DismantlePutawayDetailTVStyle"
+                android:text="类型"/>
+
+            <EditText
+                android:id="@+id/dismantel_detail_et_type"
+                style="@style/DismantlePutawayDetailETStyle"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center">
+
+            <TextView
+                style="@style/DismantlePutawayDetailTVStyle"
+                android:text="储位"
+                />
+
+            <EditText
+                android:id="@+id/dismantel_detail_bin_location"
+                style="@style/DismantlePutawayDetailETStyle"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center">
+
+            <TextView
+                style="@style/DismantlePutawayDetailTVStyle"
+                android:text="规格"
+                />
+
+            <EditText
+                android:id="@+id/dismantel_detail_et_standard"
+                style="@style/DismantlePutawayDetailETStyle"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/dismantle_btn_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:text="保存"
+            android:textSize="@dimen/comm_text_size_20"/>
+
+        <CheckBox
+            android:id="@+id/dismantle_checkBox_grind"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:gravity="center"
+            android:text="是否研磨"
+            android:textSize="@dimen/comm_text_size_20"/>
+    </RelativeLayout>
+</LinearLayout>

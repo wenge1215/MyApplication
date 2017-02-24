@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:focusable="true"
+              android:focusableInTouchMode="true"
+              android:orientation="vertical">
+
+    <com.innolux.widget.NavigationBar
+        android:id="@id/navigation_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:NBTitle="拆夹上架"
+        app:isShowBack="true"
+        app:isShowMore="true"
+        >
+    </com.innolux.widget.NavigationBar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="身份码"
+            android:textSize="@dimen/comm_text_size_20"
+            />
+
+        <EditText
+            android:id="@id/et_materiel_code_info"
+            style="@style/EditTextStyle"
+            android:hint="电极或刀具身份码"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="品名"
+                android:textSize="@dimen/comm_text_size_20"/>
+
+            <EditText
+                android:id="@+id/dismantel_et_goos_name"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:enabled="false"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="规格"
+                android:textSize="@dimen/comm_text_size_20"/>
+
+            <EditText
+                android:id="@+id/dismantel_et_standard"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:enabled="false"/>
+            />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="类型"
+                android:textSize="@dimen/comm_text_size_20"/>
+
+            <EditText
+                android:id="@+id/dismantel_et_type"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:enabled="false"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="储位"
+                android:textSize="@dimen/comm_text_size_20"/>
+
+            <EditText
+                android:id="@+id/dismantel_et_bin_location"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:enabled="false"/>
+            />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/layout_title"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="物料类型"
+            android:textSize="@dimen/comm_text_size_20"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="数量"
+            android:textSize="@dimen/comm_text_size_20"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="储位"
+            android:textSize="@dimen/comm_text_size_20"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/dismantel_layout_base"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <TextView
+                android:id="@+id/dismantel_tv_base_name"
+                android:text="底座"
+                style="@style/DismantleaTextStyle"
+               />
+
+            <TextView
+                android:id="@+id/dismantel_tv_pedestal_num"
+                android:text="1"
+                style="@style/DismantleaTextStyle"
+                />
+
+            <TextView
+
+                android:id="@+id/dismantel_tv_base_bin_location"
+                style="@style/DismantleaTextStyle"
+               />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/layout_title"/>
+        <LinearLayout
+            android:id="@+id/dismantel_layout_parts"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <TextView
+                android:text="铜"
+                style="@style/DismantleaTextStyle"
+                android:id="@+id/dismantel_tv_name"/>
+
+            <TextView
+                android:id="@+id/dismantel_tv_num"
+                android:text="1"
+                style="@style/DismantleaTextStyle"
+                />
+
+            <TextView
+                android:id="@+id/dismantel_tv_bin_location"
+                style="@style/DismantleaTextStyle"
+                />
+        </LinearLayout>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/layout_title"/>
+    <LinearLayout
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:id="@+id/dismantel_detail_layout_group"
+            android:visibility="invisible"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <include layout="@layout/dismantle_putaway_detail_layout"/>
+            </ScrollView>
+        </LinearLayout>
+        <include layout="@layout/btn_layout_view"/>
+    </LinearLayout>
+
+</LinearLayout>

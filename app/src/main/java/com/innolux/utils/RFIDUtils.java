@@ -18,12 +18,29 @@ public class RFIDUtils {
     private Context mContext;
     private UhfReader sReader = UhfReader.getInstance(); //超高频读写器
     //    private final String[] strMemBank = {"RESERVE", "EPC", "TID", "USER"};//RESERVE EPC TID USER分别对应0,1,2,3
-
-
-    public RFIDUtils(Context context) {
-        mContext = context;
+    private  static RFIDUtils sRFIDUtils;
+    private RFIDUtils(){
         initPower();
     }
+    public RFIDUtils(Context context){
+        this.mContext = context;
+    }
+
+    public static RFIDUtils getRFIDUtils() {
+        if (sRFIDUtils == null) {
+            synchronized (RFIDUtils.class) {
+                if (sRFIDUtils == null) {
+                    sRFIDUtils = new RFIDUtils();
+                }
+            }
+        }
+        return null;
+    }
+
+//    public RFIDUtils(Context context) {
+//
+//        initPower();
+//    }
 
     //单次读取
     public String readOnceEPC() {

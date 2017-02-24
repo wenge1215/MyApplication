@@ -146,18 +146,19 @@ public class BuyPutawayFragment extends Fragment {
     private OnBuyPutawayAdapterListener mOnBuyPutawayAdapterListener;
 
     public void setCheckedItem(int i) {
-        for (int j = 0; j < models.size(); j++) {
-            BeanClass beanClass = models.get(j);
-            int codeInfo = Integer.valueOf(beanClass.codeInfo);
-            if (codeInfo == i) {
-//                mRightContainerListview.setSelected(true);
-//                mLeftContainerListview.setSelected(true);
-//                mLeftContainerListview.smoothScrollToPosition(j);
-                mRightContainerListview.smoothScrollToPosition(j);
-                setItemColor(j);
-//                mMyRightAdapter.notifyDataSetChanged();
-            }
-        }
+        setItemColor(0);
+//        for (int j = 0; j < models.size(); j++) {
+//            BeanClass beanClass = models.get(j);
+//            int codeInfo = Integer.valueOf(beanClass.codeInfo);
+//            if (codeInfo == i) {
+////                mRightContainerListview.setSelected(true);
+////                mLeftContainerListview.setSelected(true);
+////                mLeftContainerListview.smoothScrollToPosition(j);
+//                mRightContainerListview.smoothScrollToPosition(j);
+//                setItemColor(j);
+////                mMyRightAdapter.notifyDataSetChanged();
+//            }
+//        }
 
 
     }

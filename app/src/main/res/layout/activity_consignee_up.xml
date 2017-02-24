@@ -22,23 +22,15 @@
         android:layout_marginTop="5dp"
         android:orientation="horizontal">
         <TextView
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
+            style="@style/LayoutEtTextViewStyle"
             android:text="条码信息"
-            android:textSize="@dimen/comm_text_size_20"
             />
+
         <EditText
             android:id="@id/et_materiel_code_info"
-            android:layout_width="0dp"
-            android:layout_weight="3"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/bg_edittext"
+            style="@style/EditTextStyle"
             android:hint="物料条码信息"
-            android:maxLines="1"
-            android:singleLine="true"/>
+            />
 
 
 
@@ -51,49 +43,34 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="100dp"
-            android:gravity="center"
-            android:layout_height="wrap_content"
+            style="@style/LayoutEtTextViewStyle"
             android:text="周转箱码"
-            android:textSize="@dimen/comm_text_size_20"
             />
 
         <EditText
             android:id="@id/et_boom_code"
-            android:layout_width="0dp"
-            android:layout_weight="3"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/bg_edittext"
+            style="@style/EditTextStyle"
             android:hint="请读取周转箱身份码"
-            android:maxLines="1"
-            android:singleLine="true"/>
+           />
     </LinearLayout>
 
     <LinearLayout
+        android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
+           style="@style/LayoutEtTextViewStyle"
             android:text="PO编码"
-            android:textSize="@dimen/comm_text_size_20"
             />
 
         <EditText
             android:id="@id/et_po_code"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-
-            android:background="@drawable/bg_edittext"
+            style="@style/EditTextStyle"
+            android:layout_weight="8"
             android:hint="请输入PO码"
-            android:maxLines="1"
-            android:singleLine="true"/>
+           />
 
         <Button
             android:id="@id/btn_query"
@@ -107,6 +84,7 @@
     </LinearLayout>
 
     <com.innolux.widget.FavorTitleBar
+        android:layout_marginTop="5dp"
         android:id="@+id/consignees_favor_title_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

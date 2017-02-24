@@ -134,24 +134,28 @@ public class BuyPutawayActivity extends BaseActivity implements View.OnFocusChan
 
             @Override
             public void onClickMore() {
+                hideKeyboard();
                 //TODO 查询
                 switch (mScanType) {
-                    case 1:
+                    case IDENTITY_CODE:         //焦点在身份码
 
                         break;
-                    case 2:
+                    case BIN_LOCATION:         //焦点在储位码
 
                         break;
-                    case 3:
-                        //模拟选中id为3的item
-                        mBuyPutawayFragment.setCheckedItem(1234765);
-
-
+                    case PUTAWAY_DETIAL:
+                        //模拟选中条码信息为1234765的item
+                        for (int i = 0; i < mListData.size(); i++) {
+                            BeanClass beanClass = mListData.get(i);
+                            if (beanClass.codeInfo.equals("1234765")) {
+                                mListData.remove(i);
+                                mListData.add(0,beanClass);
+                                mBuyPutawayFragment.notifyChangeDatas(mListData);
+                                mBuyPutawayFragment.setCheckedItem(0);
+                            }
+                        }
                         break;
                 }
-
-
-
             }
         });
     }
@@ -160,12 +164,34 @@ public class BuyPutawayActivity extends BaseActivity implements View.OnFocusChan
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_cancel:
-                mScanType = IDENTITY_CODE;
+                clearDetail();
                 break;
             case R.id.btn_submit:
-
+                submitDetail();
                 break;
         }
+    }
+
+    /**
+     * 提交作业记录
+     */
+    private void submitDetail() {
+        if (mIsBoom) {
+            toast("提交BOOM作业明细");
+        } else {
+            toast("提交非BOOM作业明细");
+        }
+    }
+
+
+    /**
+     * 清除作业记录记录
+     */
+    private void clearDetail() {
+        mEtBoomCode.setText("");
+        mEtMaterielCodeInfo.setText("");
+        mListData.clear();
+        mBuyPutawayFragment.notifyChangeDatas(mListData);
     }
 
 
@@ -183,4 +209,28 @@ public class BuyPutawayActivity extends BaseActivity implements View.OnFocusChan
                 break;
         }
     }
+
+
+    @Override
+    public void onClickF1() {
+
+    }
+
+    @Override
+    public void onClickF2() {
+
+    }
+
+
+    @Override
+    public void onClickLifeBtn() {
+
+    }
+
+    @Override
+    public void onClickRightBtn() {
+
+    }
+
+
 }
