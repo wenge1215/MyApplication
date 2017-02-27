@@ -10,7 +10,7 @@
         android:id="@id/navigation_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:NBTitle="上架"
+        app:NBTitle="电极上架"
         app:isShowBack="true"
         app:isShowMore="true">
 
@@ -24,12 +24,12 @@
 
         <TextView
             style="@style/LayoutEtTextViewStyle"
-            android:text="身份码"/>
+            android:text="箱码"/>
 
         <EditText
             android:id="@id/et_materiel_code_info"
             style="@style/EditTextStyle"
-            android:hint="周转箱码/物料条码"
+            android:hint="周转箱码"
             />
 
 
@@ -43,7 +43,7 @@
 
         <TextView
             style="@style/LayoutEtTextViewStyle"
-            android:text="储位码"
+            android:text="料号"
             />
 
         <EditText
@@ -51,6 +51,14 @@
             style="@style/EditTextStyle"
             android:hint="请读取储位码"/>
     </LinearLayout>
+
+    <CheckBox
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text="是否研磨"
+        android:textSize="@dimen/comm_text_size_20"/>
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -64,10 +72,36 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:orientation="vertical"
-            >
+            ></FrameLayout>
 
-        </FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-        <include layout="@layout/btn_layout_view"/>
+            <Button
+                android:id="@id/btn_clear"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="删除"
+                android:textSize="@dimen/comm_text_size_22"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="取消"
+                android:id="@id/btn_cancel"
+                android:textSize="@dimen/comm_text_size_22"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="提交"
+                android:id="@id/btn_submit"
+                android:textSize="@dimen/comm_text_size_22"/>
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>

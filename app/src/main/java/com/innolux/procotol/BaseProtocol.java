@@ -17,26 +17,24 @@ import java.util.Map;
 import okhttp3.Call;
 
 /**
- * 类    名:  BaseProtocol
- * 创 建 者:  伍碧林
- * 创建时间:  2016/11/4 10:06
- * 描    述： ${TODO}
+ * 网络请求的基类
+ *
+ * @param <RESTYPE>
  */
 public abstract class BaseProtocol<RESTYPE> {
     public Map<String, String> mParmasMap;
 
     /**
-     * 加载数据
-     *
-     * @return
+     * @param callback 回调接口
+     * @param reqType  请求类型
      */
     public void loadDataByGet(Callback callback, int reqType) {
-        //在网络
+        //
         loadDataFromNetByGet(callback, reqType);
     }
 
     public void loadDataByPost(Callback callback, int reqType) {
-        //在网络
+        //
         loadDataFromNetByPost(callback, reqType);
     }
 
@@ -88,23 +86,11 @@ public abstract class BaseProtocol<RESTYPE> {
         //?pageIndex=0&catalog=1&pageSize=20
         File file = null;
 
-        Map<String, File> fileMap = getFileMap();
-
         PostFormBuilder postFormBuilder = OkHttpUtils
                 .post()
                 .url(url)
                 .params(getParmasMap())
                 .headers(getHeadersMap());
-
-
-        //遍历集合fileMap,动态添加图片
-        if (fileMap != null) {//需要上传图片
-            for (Map.Entry<String, File> info : fileMap.entrySet()) {
-                String key = info.getKey();
-                File value = info.getValue();
-                postFormBuilder.addFile(key, value.getName(), value);
-            }
-        }
 
         postFormBuilder.build()
                 .execute(new StringCallback() {
@@ -168,15 +154,6 @@ public abstract class BaseProtocol<RESTYPE> {
      * @return
      */
     protected Map<String, String> getHeadersMap() {
-        return null;
-    }
-
-    /**
-     * 添加需要上传的图片
-     *
-     * @return
-     */
-    protected Map<String, File> getFileMap() {
         return null;
     }
 

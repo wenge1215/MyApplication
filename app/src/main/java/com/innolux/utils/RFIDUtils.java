@@ -26,15 +26,15 @@ public class RFIDUtils {
         this.mContext = context;
     }
 
-    public static RFIDUtils getRFIDUtils() {
+    public static RFIDUtils getInstance() {
         if (sRFIDUtils == null) {
             synchronized (RFIDUtils.class) {
                 if (sRFIDUtils == null) {
-                    sRFIDUtils = new RFIDUtils();
+                   return sRFIDUtils = new RFIDUtils();
                 }
             }
         }
-        return null;
+        return sRFIDUtils;
     }
 
 //    public RFIDUtils(Context context) {
@@ -51,6 +51,7 @@ public class RFIDUtils {
         byte[] accessPassword = Tools.HexString2Bytes(SPUtils.getString(MyApp.getContext(),Constant.ACCESSPASSWORD));
         byte[] datas = sReader.readFrom6C(memBank, startAddr, length, accessPassword);
         if (datas != null && datas.length > 0) {
+            WarningToneUtil.play(1,0);
             String epc = Tools.Bytes2HexString(datas, datas.length);
             return epc;
         }

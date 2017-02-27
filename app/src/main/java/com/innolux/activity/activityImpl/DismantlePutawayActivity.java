@@ -149,7 +149,7 @@ public class DismantlePutawayActivity extends BaseActivity implements View.OnFoc
     }
 
     /**
-     * 初始化拆夹信息
+     * 模拟数据，初始化拆夹信息
      */
     private void initFinishedInfo() {
         mDismantelEtGoosName.setText("电极");

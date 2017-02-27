@@ -85,11 +85,13 @@ public class BarCodeUtils {
             e.printStackTrace();
         }
         if (sDecodeResult.length > 0) {
+            WarningToneUtil.play(1,0);
             try {
                 byte[] barcodeByteData = sDecoder.getBarcodeByteData();
                 try {
                     String braCode = new String(barcodeByteData, "utf-8");
                     return braCode;
+
 
                 } catch (UnsupportedEncodingException e) {
                     e.printStackTrace();

@@ -11,4 +11,16 @@
     <string name="ftb_left">BOOM上架</string>
     <string name="ftb_right">非BOOM上架</string>
     <string name="bin_location_num">储位码：</string>
+    <string name="name">品名</string>
+    <string name="standard">规格</string>
+    <string name="type">类型</string>
+    <string name="bin_location">储位</string>
+    <string name="positoin_num">身份码</string>
+    <string name="et_hint">电极或刀具身份码</string>
+    <string name="material_type">物料类型</string>
+    <string name="num">数量</string>
+    <string name="pedestal">底座</string>
+    <string name="copper">铜</string>
+    <string name="hilt">刀把</string>
+    <string name="knife">刀</string>
 </resources>

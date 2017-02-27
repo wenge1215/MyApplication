@@ -10,7 +10,7 @@
         android:id="@id/navigation_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:NBTitle="上架"
+        app:NBTitle="电极上架"
         app:isShowBack="true"
         app:isShowMore="true">
 
@@ -23,8 +23,8 @@
         android:orientation="horizontal">
 
         <TextView
-            style="@style/LayoutEtTextViewStyle"
-            android:text="身份码"/>
+            android:text="身份码"
+            style="@style/LayoutEtTextViewStyle"/>
 
         <EditText
             android:id="@id/et_materiel_code_info"
@@ -48,15 +48,46 @@
 
         <EditText
             android:id="@id/et_boom_code"
-            style="@style/EditTextStyle"
-            android:hint="请读取储位码"/>
+            android:hint="请读取储位码"
+            style="@style/EditTextStyle"/>
     </LinearLayout>
 
+
     <LinearLayout
+        android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="5dp"
         android:orientation="vertical">
+        <!--假数据-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="品名"
+                android:textSize="@dimen/comm_text_size_20"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="储位"
+                android:textSize="@dimen/comm_text_size_20"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="数量"
+                android:textSize="@dimen/comm_text_size_20"/>
+        </LinearLayout>
 
         <FrameLayout
             android:id="@id/fl_detailed"
@@ -64,10 +95,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:orientation="vertical"
-            >
-
-        </FrameLayout>
-
+            ></FrameLayout>
         <include layout="@layout/btn_layout_view"/>
     </LinearLayout>
 </LinearLayout>

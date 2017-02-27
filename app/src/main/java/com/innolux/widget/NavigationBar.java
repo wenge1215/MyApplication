@@ -91,4 +91,8 @@ public class NavigationBar extends RelativeLayout {
         void onClickMore();
     }
 
+    public void setTitle(String title){
+        mIvNavigationBarsTitle.setText(title);
+    }
+
 }

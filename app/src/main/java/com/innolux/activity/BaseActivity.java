@@ -22,6 +22,7 @@ import android.widget.Toast;
 
 import com.innolux.Barcode;
 import com.innolux.R;
+import com.innolux.utils.RFIDUtils;
 
 import java.util.List;
 
@@ -49,30 +50,35 @@ public abstract class BaseActivity extends AppCompatActivity {
         registerReceiver(keyReceiver, filter);
     }
 
-//    public void initActionBar(String title) {
-//        ActionBar actionBar = getSupportActionBar();
-//        actionBar.setTitle(title);
-//        //        actionBar.setIcon(R.mipmap.ic_launcher);
-//        //        actionBar.setDisplayShowHomeEnabled(false);
-//        actionBar.setDisplayHomeAsUpEnabled(true);
-//
-//
-//    }
-//
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        switch (item.getItemId()) {
-//            case android.R.id.home:
-//                finish();
-//                break;
-//            default:
-//                break;
-//        }
-//        return super.onOptionsItemSelected(item);
-//    }
+    //    public void initActionBar(String title) {
+    //        ActionBar actionBar = getSupportActionBar();
+    //        actionBar.setTitle(title);
+    //        //        actionBar.setIcon(R.mipmap.ic_launcher);
+    //        //        actionBar.setDisplayShowHomeEnabled(false);
+    //        actionBar.setDisplayHomeAsUpEnabled(true);
+    //
+    //
+    //    }
+    //
+    //    @Override
+    //    public boolean onOptionsItemSelected(MenuItem item) {
+    //        switch (item.getItemId()) {
+    //            case android.R.id.home:
+    //                finish();
+    //                break;
+    //            default:
+    //                break;
+    //        }
+    //        return super.onOptionsItemSelected(item);
+    //    }
 
 
-    public void initDialog(String leftStr,String rightStr) {
+    /**
+     * 
+     * @param leftStr
+     * @param rightStr
+     */
+    public void initDialog(String leftStr, String rightStr) {
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         LayoutInflater inflater = getLayoutInflater();
         View view = inflater.inflate(R.layout.alter_dialog_now_num_view, null);
@@ -82,30 +88,34 @@ public abstract class BaseActivity extends AppCompatActivity {
         final Button leftBtn = (Button) view.findViewById(R.id.now_num_dialog_boom);
         Button rightBtn = (Button) view.findViewById(R.id.now_num_dialog_no_boom);
         leftBtn.setText(leftStr);
-        leftBtn.setTextSize(TypedValue.COMPLEX_UNIT_PX,getResources().getDimensionPixelSize(R.dimen.comm_text_size_22));
+        leftBtn.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimensionPixelSize(R.dimen.comm_text_size_22));
         rightBtn.setText(rightStr);
-        rightBtn.setTextSize(TypedValue.COMPLEX_UNIT_PX,getResources().getDimensionPixelSize(R.dimen.comm_text_size_22));
+        rightBtn.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimensionPixelSize(R.dimen.comm_text_size_22));
         leftBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onLeftBtnClick(alertDialog);
+                onPositiveBtnClick(alertDialog);
             }
         });
 
         rightBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onRightBtnClick(alertDialog);
+                onNegativeBtnClick(alertDialog);
             }
         });
 
     }
 
-    public  void onRightBtnClick(AlertDialog alertDialog){
+    /**
+     *
+     * @param alertDialog
+     */
+    public void onNegativeBtnClick(AlertDialog alertDialog) {
 
     }
 
-    public  void onLeftBtnClick(AlertDialog alertDialog){
+    public void onPositiveBtnClick(AlertDialog alertDialog) {
 
     }
 
@@ -248,15 +258,28 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
     };
 
+    /**
+     * 点击右侧按钮
+     */
     public void onClickRightBtn() {
+
     }
 
+    /**
+     * 点击左侧按钮
+     */
     public void onClickLifeBtn() {
     }
 
+    /**
+     * 点击F2
+     */
     public void onClickF2() {
     }
 
+    /**
+     * 点击F1
+     */
     public void onClickF1() {
     }
 
@@ -264,10 +287,17 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        //        RFIDUtils rfidUtils = new RFIDUtils(this);
-        //        rfidUtils.closeReaner();
+        //关闭RFID读写器
+        RFIDUtils.getInstance().closeReaner();
+
     }
 
+    /**
+     * 返回键的监听
+     * @param keyCode
+     * @param event
+     * @return
+     */
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
@@ -276,7 +306,11 @@ public abstract class BaseActivity extends AppCompatActivity {
         return super.onKeyDown(keyCode, event);
     }
 
+    /**
+     * 当返回键被点击时调用，子类需要对返回键做处理时调用该方法
+     */
     public void onClickBack() {
+        showOnBackDialog();
     }
 
     public void showOnBackDialog() {
@@ -294,8 +328,7 @@ public abstract class BaseActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
-                ConsigneesActivityUP activityUP = new ConsigneesActivityUP();
-                activityUP.finish();
+
             }
         });
 

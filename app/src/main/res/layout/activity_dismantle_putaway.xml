@@ -27,14 +27,14 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="身份码"
+            android:text="@string/positoin_num"
             android:textSize="@dimen/comm_text_size_20"
             />
 
         <EditText
             android:id="@id/et_materiel_code_info"
             style="@style/EditTextStyle"
-            android:hint="电极或刀具身份码"
+            android:hint="@string/et_hint"
             />
 
     </LinearLayout>
@@ -59,7 +59,7 @@
                 android:layout_height="50dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="品名"
+                android:text="@string/name"
                 android:textSize="@dimen/comm_text_size_20"/>
 
             <EditText
@@ -71,7 +71,7 @@
                 android:layout_height="50dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="规格"
+                android:text="@string/standard"
                 android:textSize="@dimen/comm_text_size_20"/>
 
             <EditText
@@ -91,7 +91,7 @@
                 android:layout_height="40dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="类型"
+                android:text="@string/type"
                 android:textSize="@dimen/comm_text_size_20"/>
 
             <EditText
@@ -104,7 +104,7 @@
                 android:layout_height="40dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="储位"
+                android:text="@string/bin_location"
                 android:textSize="@dimen/comm_text_size_20"/>
 
             <EditText
@@ -128,7 +128,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="物料类型"
+            android:text="@string/material_type"
             android:textSize="@dimen/comm_text_size_20"/>
 
         <TextView
@@ -136,7 +136,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="数量"
+            android:text="@string/num"
             android:textSize="@dimen/comm_text_size_20"/>
 
         <TextView
@@ -144,7 +144,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="储位"
+            android:text="@string/bin_location"
             android:textSize="@dimen/comm_text_size_20"/>
     </LinearLayout>
 
@@ -161,7 +161,7 @@
             <TextView
                 android:id="@+id/dismantel_tv_base_name"
                 style="@style/DismantleaTextStyle"
-                android:text="底座"
+                android:text="@string/pedestal"
                 />
 
             <TextView
@@ -190,7 +190,7 @@
             <TextView
                 android:id="@+id/dismantel_tv_name"
                 style="@style/DismantleaTextStyle"
-                android:text="铜"/>
+                android:text="@string/copper"/>
 
             <TextView
                 android:id="@+id/dismantel_tv_num"

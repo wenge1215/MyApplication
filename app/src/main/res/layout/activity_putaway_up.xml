@@ -13,27 +13,35 @@
         android:layout_height="wrap_content">
     </com.innolux.widget.NavigationBar>
 
-    <LinearLayout
-        android:layout_marginTop="30dp"
+    <RelativeLayout
+        android:padding="10dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp">
 
         <TextView
+
+            android:drawableTop="@mipmap/putaway"
             android:id="@+id/putaway_tv_buy"
             style="@style/PutawayTextSty"
-            android:drawableTop="@mipmap/putaway"
-            android:text="请购上架"/>
+            android:text="请购上架"
+            />
 
         <TextView
             android:id="@+id/putaway_tv_dismantle"
-            style="@style/PutawayTextSty"
             android:drawableTop="@mipmap/putaway"
-            android:text="拆夹上架"/>
+            style="@style/PutawayTextSty"
+            android:layout_centerHorizontal="true"
+            android:text="拆夹上架"
+            />
 
+        android:text="电极上架"
         <TextView
             android:id="@+id/putaway_tv_pole"
-            style="@style/PutawayTextSty"
             android:drawableTop="@mipmap/putaway"
-            android:text="电极上架"/>
-    </LinearLayout>
+            android:layout_alignParentRight="true"
+            style="@style/PutawayTextSty"
+            android:text="电极上架"
+            />
+    </RelativeLayout>
 </LinearLayout>

@@ -259,7 +259,7 @@ public class ConsigneesActivity extends BaseActivity {
                 mBoomAdapter.notifyDataSetChanged();
                 break;
             case R.id.btn_scan_pass_box_num:
-                RFIDUtils rfidUtils = RFIDUtils.getRFIDUtils();
+                RFIDUtils rfidUtils = RFIDUtils.getInstance();
                 mEpc =  rfidUtils.readOnceEPC();
                 mEditTextPassBoxNum.setText(mEpc);
                 break;

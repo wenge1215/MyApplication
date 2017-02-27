@@ -13,8 +13,8 @@ import com.innolux.ui.AbnormalActivity;
 import com.innolux.ui.BInLocationActivity;
 import com.innolux.ui.ClampingActivity;
 import com.innolux.ui.DetailsActivity;
-import com.innolux.ui.PositionActivity;
-import com.innolux.ui.RollbackActivity;
+import com.innolux.activity.activityImpl.SignForActivity;
+import com.innolux.activity.activityImpl.RollbackActivity;
 import com.innolux.ui.SeparateActivity;
 import com.innolux.ui.SettingActivity;
 import com.innolux.ui.TakeStockActivity;
@@ -115,7 +115,7 @@ public class MainActivity extends BaseActivity {
                     break;
                 case 8:
                     toast("工位签收");
-                    goTo(PositionActivity.class);
+                    goTo(SignForActivity.class);
                     break;
                 case 9:
                     toast("异常作业");

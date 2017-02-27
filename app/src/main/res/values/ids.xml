@@ -23,4 +23,6 @@
     <item name="right_item_textview_putaway_num" type="id">上架数量</item>
     <item name="right_item_textview_detial_id" type="id">明细ID</item>
     <item name="right_item_textview_mbmat_num" type="id">料号</item>
+    <item name="fl_detailed" type="id"/>
+    <item name="btn_clear" type="id"/>
 </resources>

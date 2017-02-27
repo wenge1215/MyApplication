@@ -21,12 +21,16 @@
     </style>
 
     <style name="PutawayTextSty">
-        <item name="android:layout_margin">5dp</item>
+        <!--  android:paddingTop="10dp"
+            android:background="@color/btn_boom"
+            android:layout_width=""
+            android:layout_height=""
+            android:gravity="center"
+            android:textSize="@dimen/comm_text_size_20"-->
         <item name="android:padding">10dp</item>
         <item name="android:background">#95ddef</item>
-        <item name="android:layout_width">0dp</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_weight">1</item>
+        <item name="android:layout_width">120dp</item>
+        <item name="android:layout_height">120dp</item>
         <item name="android:drawablePadding">3dp</item>
         <item name="android:gravity">center</item>
         <item name="android:textSize">@dimen/comm_text_size_22</item>

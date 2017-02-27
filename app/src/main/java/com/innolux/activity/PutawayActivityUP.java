@@ -1,16 +1,15 @@
 package com.innolux.activity;
 
-import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
 import com.innolux.R;
 import com.innolux.activity.activityImpl.BuyPutawayActivity;
 import com.innolux.activity.activityImpl.DismantlePutawayActivity;
+import com.innolux.activity.activityImpl.ElectrodeShelvesActivity;
 import com.innolux.widget.NavigationBar;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
@@ -36,6 +35,7 @@ public class PutawayActivityUP extends BaseActivity {
 
     @Override
     protected void init() {
+        mNavigationBar.setTitle("上架作业");
         mNavigationBar.setNavigationBarListener(new NavigationBar.NavigationBarListener() {
             @Override
             public void onClickBack() {
@@ -59,14 +59,8 @@ public class PutawayActivityUP extends BaseActivity {
                 goTo(DismantlePutawayActivity.class);
                 break;
             case R.id.putaway_tv_pole:
+                goTo(ElectrodeShelvesActivity.class);
                 break;
         }
-    }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
     }
 }

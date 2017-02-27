@@ -82,7 +82,7 @@ public class BOOMDetialFragment extends Fragment {
 
         // 添加左边内容数据
 //        mLeftTitleContainer.setBackgroundColor();
-        mLeftTitleContainer.setBackgroundResource(R.color.common_plus_signin_btn_text_dark_disabled);
+        mLeftTitleContainer.setBackgroundResource(R.color.common_google_signin_btn_text_dark_disabled);
         mMyLeftAdapter = new MyLeftAdapter(mContext, models);
         mLeftContainerListview.setAdapter(mMyLeftAdapter);
         UtilTools.setListViewHeightBasedOnChildren(mLeftContainerListview);

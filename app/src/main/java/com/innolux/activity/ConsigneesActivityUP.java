@@ -1,6 +1,7 @@
 package com.innolux.activity;
 
 import android.app.AlertDialog;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -8,10 +9,13 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 
 import com.innolux.R;
+import com.innolux.app.Constant;
 import com.innolux.bean.BeanClass;
 import com.innolux.fragment.BOOMDetialFragment;
 import com.innolux.fragment.ConsignessDetailFragmentUp;
 import com.innolux.fragment.ConsumeDetialFragment;
+import com.innolux.utils.BarCodeUtils;
+import com.innolux.utils.RFIDUtils;
 import com.innolux.utils.TestUtils;
 import com.innolux.widget.FavorTitleBar;
 import com.innolux.widget.NavigationBar;
@@ -68,14 +72,14 @@ public class ConsigneesActivityUP extends BaseActivity implements View.OnFocusCh
     }
 
     @Override
-    public void onRightBtnClick(AlertDialog alertDialog) {
+    public void onNegativeBtnClick(AlertDialog alertDialog) {
         mIsBOOM = false;
         initDetailView();
         alertDialog.dismiss();
     }
 
     @Override
-    public void onLeftBtnClick(AlertDialog alertDialog) {
+    public void onPositiveBtnClick(AlertDialog alertDialog) {
         mIsBOOM = true;
         initDetailView();
         alertDialog.dismiss();
@@ -138,8 +142,6 @@ public class ConsigneesActivityUP extends BaseActivity implements View.OnFocusCh
         } else {            //展示明细
             displayDetial();
         }
-
-
     }
 
     private void displayDetial() {
@@ -160,8 +162,6 @@ public class ConsigneesActivityUP extends BaseActivity implements View.OnFocusCh
                     .replace(fl_consignee_detailed, consumeDetialFragment, "ConsumeDetialFragment")
                     .commit();
         }
-
-
     }
 
     /**
@@ -277,13 +277,36 @@ public class ConsigneesActivityUP extends BaseActivity implements View.OnFocusCh
 
     @Override
     public void onClickLifeBtn() {
-        toast("life");
+        String scan = BarCodeUtils.getInstans().scan(Constant.TIME_OUT);
+        onScanSucceed(scan);
+
     }
+
 
     @Override
     public void onClickRightBtn() {
+        String epc = RFIDUtils.getInstance().readOnceEPC();
+        onScanSucceed(epc);
 
-        toast("right");
+    }
+
+    private void onScanSucceed(String code) {
+        if (TextUtils.isEmpty(code)) {
+            toast("读取失败，请重新读取");
+            return;
+        }
+        //根据焦点判断扫码类型
+        if (mScanType == 1) {
+            mEtMaterielCodeInfo.setText(code);
+            //TODO send request
+
+        }else if (mScanType == 2){
+            mEtBoomCode.setText(code);
+            //TODO send request
+
+        } else if (mScanType == 3) {
+            mEtPoCode.setText(code);
+        }
     }
 
     @Override

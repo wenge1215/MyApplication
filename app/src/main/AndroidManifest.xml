@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.innolux">
-    <!--barCode-->
+
+    <!-- barCode -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.ACCESS_MTK_MMHW"/>
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
-    <!--uhf-->
+    <!-- uhf -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <uses-permission android:name="android.permission.WRITE_PROFILE"/>
 
@@ -17,48 +18,49 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".activity.MainActivity">
+        <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
+
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity
-            android:name=".ui.BarCodeActivityUP">
-
+        <activity android:name=".ui.BarCodeActivityUP">
         </activity>
-        <activity
-            android:name=".ui.ConsigneesActivity">
-
+        <activity android:name=".ui.ConsigneesActivity">
         </activity>
         <activity android:name=".activity.ConsigneesActivityUP">
-
         </activity>
         <activity android:name=".ui.DetailsActivity">
         </activity>
-        <activity android:name=".ui.PutawayActivity"></activity>
+        <activity android:name=".ui.PutawayActivity"/>
         <activity android:name=".ui.AbnormalActivity"/>
         <activity android:name=".ui.BInLocationActivity"/>
         <activity android:name=".ui.ClampingActivity"/>
-        <activity android:name=".ui.PositionActivity"/>
-        <activity android:name=".ui.RollbackActivity"/>
+        <activity android:name=".activity.activityImpl.SignForActivity"/>
+        <activity android:name=".activity.activityImpl.RollbackActivity"/>
         <activity android:name=".ui.SeparateActivity"/>
         <activity android:name=".ui.TakeStockActivity"/>
         <activity android:name=".ui.SettingActivity"/>
-        <activity
-            android:name=".ui.TallyActivity"></activity>
+        <activity android:name=".ui.TallyActivity"/>
         <activity android:name=".activity.activityImpl.BuyPutawayActivity"/>
         <activity android:name=".activity.PutawayActivityUP"/>
         <activity android:name=".activity.activityImpl.DismantlePutawayActivity"/>
+        <activity android:name=".activity.activityImpl.ElectrodeShelvesActivity"/>
+
         <service android:name=".service.ScanService">
             <action android:name="com.my.scan"/>
+
             <category android:name="android.intent.category.DEFAULT"/>
-        </service><!-- ATTENTION: This was auto-generated to add Google Play services to your project for
-     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
+        </service>
+        <!--
+ ATTENTION: This was auto-generated to add Google Play services to your project for
+     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
+        -->
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version"/>
+
     </application>
 
 </manifest>

@@ -54,14 +54,14 @@ public class BuyPutawayActivity extends BaseActivity implements View.OnFocusChan
     }
 
     @Override
-    public void onRightBtnClick(AlertDialog alert) {
+    public void onNegativeBtnClick(AlertDialog alert) {
         mIsBoom = false;
         initPutawayDetialFragment(mIsBoom);
         alert.dismiss();
     }
 
     @Override
-    public void onLeftBtnClick(AlertDialog alert) {
+    public void onPositiveBtnClick(AlertDialog alert) {
         mIsBoom = true;
         initPutawayDetialFragment(mIsBoom);
         alert.dismiss();
@@ -126,6 +126,7 @@ public class BuyPutawayActivity extends BaseActivity implements View.OnFocusChan
 
 
     private void initNBlistener() {
+        mNavigationBar.setTitle("请购料上架");
         mNavigationBar.setNavigationBarListener(new NavigationBar.NavigationBarListener() {
             @Override
             public void onClickBack() {
