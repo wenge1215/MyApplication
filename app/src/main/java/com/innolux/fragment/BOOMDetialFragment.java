@@ -25,7 +25,7 @@ import butterknife.ButterKnife;
 
 /**
  * 创建者： WENGE
- * 创建日期： wenge on 2017/2/16.
+ * 创建日期：2017/2/16.
  * 描述：收料详情
  */
 

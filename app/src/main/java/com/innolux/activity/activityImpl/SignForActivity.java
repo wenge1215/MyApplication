@@ -55,7 +55,6 @@ public class SignForActivity extends BaseActivity {
                 //工位签收
                 toast("工位签收");
 
-
                 break;
             case R.id.manage_sign_for:
                 //组立签收

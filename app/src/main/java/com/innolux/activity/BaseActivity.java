@@ -104,7 +104,6 @@ public abstract class BaseActivity extends AppCompatActivity {
                 onNegativeBtnClick(alertDialog);
             }
         });
-
     }
 
     /**
